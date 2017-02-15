@@ -3,8 +3,8 @@
         <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>首页</title>
-    <link href="./style/css/ionic.min.css" rel="stylesheet">
-    <script src="./style/js/ionic.bundle.min.js"></script>
+    <link href="{{asset('style/css/ionic.min.css')}}" rel="stylesheet">
+    <script src="{{asset('style/js/ionic.bundle.min.js')}}"></script>
     <script type="text/javascript">
     angular.module('ionicApp', ['ionic'])
 
@@ -25,17 +25,17 @@
       text-align: center; 
       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 300; }
     .a {
-      background-image: url(./style/img/001.jpg);
+      background-image: url(style/img/001.jpg);
       background-size: 100% 100% ;
     }
 
     .b {
-      background-image: url(./style/img/002.jpg);
+      background-image: url(style/img/002.jpg);
       background-size: 100% 100% ;
     }
 
     .c {
-      background-image: url(./style/img/003.jpg);
+      background-image: url(style/img/003.jpg);
       background-size: 100% 100% ;
     }
         .box{ 
@@ -69,25 +69,25 @@
     <tr>
        <td >
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
-                <img src="./style/img/01.png" style="margin:0;width:100%;height:100%;">
+                <img src="{{asset('style/img/01.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
             <p style="font-size:11px; text-align:center" >精选课程</p>
        </td>
        <td >
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
-                <img src="./style/img/02.png" style="margin:0;width:100%;height:100%;">
+                <img src="{{asset('style/img/02.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
             <p style="font-size:11px; text-align:center">精品系列课程</p>
        </td>
       <td >
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
-                <img src="./style/img/03.png" style="margin:0;width:100%;height:100%;">
+                <img src="{{asset('style/img/03.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
             <p style="font-size:11px; text-align:center">热门推荐</p>
       </td>
       <td>
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
-                <img src="./style/img/04.png" style="margin:0;width:100%;height:100%;">
+                <img src="{{asset('style/img/04.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
             <p style="font-size:11px; text-align:center">更多</p>
       </td>
@@ -120,23 +120,23 @@
             <li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li>
             <li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li><li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li><li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li>
          </ul>
@@ -148,23 +148,23 @@
             <li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li>
             <li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li><li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li><li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li>
          </ul>
@@ -176,23 +176,23 @@
             <li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li>
             <li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li><li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li><li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li>
          </ul>
@@ -204,23 +204,23 @@
             <li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li>
             <li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li><li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li><li > 
                 <p>只要让你开心就好</p>
                  <a class="item item-thumbnail-left">
-                   <img src="./style/img/3.jpg"/>
+                   <img src="{{asset('style/img/3.jpg')}}"/>
                  </a>
             </li>
          </ul>

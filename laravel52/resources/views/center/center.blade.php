@@ -3,8 +3,8 @@
         <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>我的信息</title>
-    <link href="./style/css/ionic.min.css" rel="stylesheet">
-    <script src="./style/js/ionic.bundle.min.js"></script>
+    <link href="{{asset('style/css/ionic.min.css')}}" rel="stylesheet">
+    <script src="{{asset('style/js/ionic.bundle.min.js')}}"></script>
      <script type="text/javascript">
     angular.module('ionicApp', ['ionic'])
 

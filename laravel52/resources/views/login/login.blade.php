@@ -3,7 +3,7 @@
 <title>登录</title>
     <meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
-<link rel="stylesheet" type="text/css" href="./style/css/ionic.css">  
+<link rel="stylesheet" type="text/css" href="{{asset('style/css/ionic.css')}}">  
  <!-- <link rel="stylesheet" type="text/css" href="ionic.min.css">  -->
   
 </head>
@@ -11,7 +11,7 @@
 <div class="scroll-content padding" id="index_login">
 			<div class="list list-borderless">
 				<div class="item item-thumbnail-left item-positive">
-				<img src="./style/img/9.jpg" style="margin:0;width:100%;height:100%;border-radius:50px;overflow:hidden;">
+				<img src="{{asset('style/img/9.jpg')}}" style="margin:0;width:100%;height:100%;border-radius:50px;overflow:hidden;">
 				<h1 class="light">login</h1>
 			</div>
 

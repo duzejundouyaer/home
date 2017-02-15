@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/','welcomeController@welcome');//首页
+Route::get('/','WelcomeController@welcome');//首页
 
 Route::get('center','CenterController@center');//个人中心
 Route::get('myinfo','CenterController@myinfo');//个人资料
