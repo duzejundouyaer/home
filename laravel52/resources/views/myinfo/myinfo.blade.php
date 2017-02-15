@@ -11,7 +11,7 @@
 	
  <div id="my_info">
     <div class="bar bar-header bar-positive  " >
-	<a class="button button-clear icon ion-ios-arrow-left" href="{{URL('index')}}"></a>
+	<a class="button button-clear icon ion-ios-arrow-left" href="{{URL('center')}}"></a>
      <h1 class="title">我的资料</h1>
 	 
    </div>

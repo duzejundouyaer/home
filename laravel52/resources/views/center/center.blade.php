@@ -32,7 +32,7 @@
     <div>
              <div style="width:70px;height:70px;"></div>
               <div style="margin:10px auto;width:100px;height:100px;border-radius:50px;overflow:hidden;">
-                    <img src="./style/img/3.jpg" style="margin:0;width:100%;height:100%;">
+                    <img src="{{asset('style/img/3.jpg')}}" style="margin:0;width:100%;height:100%;">
               </div>
                    <p style="text-align:center">张三</p>
         
@@ -69,14 +69,14 @@
                     <tr>
                        <td >
                             <div style="margin:0px auto;width:35px;height:35px;overflow:hidden;">
-                                <img src="./style/img/11.jpg" style="margin:0;width:100%;height:100%;">
+                                <img src="{{asset('style/img/11.jpg')}}" style="margin:0;width:100%;height:100%;">
                             </div>
                             <p style="text-align:center">待付款</p>
                        </td>
                        <td >
                             <div style="margin:0px auto;width:40px;height:40px;overflow:hidden;">
                                 
-                                <img src="./style/img/22.jpg" style="margin:0;width:100%;height:100%;">
+                                <img src="{{asset('style/img/22.jpg')}}" style="margin:0;width:100%;height:100%;">
                                 
                             </div>
                             
@@ -84,13 +84,13 @@
                        </td>
                       <td >
                             <div style="margin:0px auto;width:40px;height:40px;overflow:hidden;">
-                                <img src="./style/img/33.jpg" style="margin:0;width:100%;height:100%;">
+                                <img src="{{asset('style/img/33.jpg')}}" style="margin:0;width:100%;height:100%;">
                             </div>
                             <p style="text-align:center">待收货</p>
                       </td>
                       <td>
                             <div style="margin:0px auto;width:40px;height:40px;overflow:hidden;">
-                                <img src="./style/img/44.jpg" style="margin:0;width:100%;height:100%;">
+                                <img src="{{asset('style/img/44.jpg')}}" style="margin:0;width:100%;height:100%;">
                             </div>
                             <p style="text-align:center">待评价</p>
                       </td>
