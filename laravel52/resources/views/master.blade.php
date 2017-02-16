@@ -4,7 +4,7 @@
         <i class="icon ion-ios-home-outline"></i>首页
     </a>
     <a class="tab-item"  href="{{URL('market')}}">
-        <i class="icon ion-ios-paper-outline"></i>详情页
+        <i class="icon ion-ios-paper-outline"></i>全部课程
     </a>
     <a class="tab-item has-badge active"  href="{{URL('more')}}">
         <i class="icon ion-ios-eye-outline"></i>直播
