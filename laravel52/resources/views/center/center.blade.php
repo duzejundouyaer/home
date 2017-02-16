@@ -42,6 +42,7 @@
               <div style="margin:10px auto;width:100px;height:100px;border-radius:50px;overflow:hidden;">
                     <img src="{{asset('style/img/3.jpg')}}" style="margin:0;width:100%;height:100%;">
               </div>
+<<<<<<< HEAD
                    <p style="text-align:center">昵称：张三</p>
               <div>
 
@@ -61,6 +62,36 @@
                      
                     <li class="item  item-button-right icon ion-ios-person-outline">
                   <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">意见反馈</a>
+=======
+                   <p style="text-align:center">张三</p>
+        
+             <div>
+                     <hr style="height:2px;background-color:#E6E6FA;border:0px" >
+                       <table width="95%" border="1" cellpadding="1" cellspacing="1">
+                          <tr>
+                               <td >
+                                    <p style="text-align:center">0</P>
+                                    <p style="text-align:center">帖子</p>
+                               </td>
+                               
+                               <td >
+                                    <p style="text-align:center">10</P>
+                                    <p style="text-align:center">关注</p>
+                               </td>
+                               
+                               <td >
+                                    <p style="text-align:center">12</P>
+                                    <p style="text-align:center">粉丝</p>
+                               </td>
+                        </tr>
+                       </table>
+                                   </div>
+              <div>
+                 <ul class="list" >
+                    <li class="item item-button-right icon ion-ios-folder-outline">
+                      我的订单
+                       <a href="{{URL('myinfo')}}" class="button button-clear icon ion-ios-arrow-right"></a>
+>>>>>>> 1c58f7dc90614de8ff03e5b25c2083fae3580404
                     </li>
                 </ul>
               </div>

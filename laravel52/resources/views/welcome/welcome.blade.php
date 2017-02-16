@@ -68,28 +68,36 @@
     <table width="100%" border="1" cellpadding="1" cellspacing="1" style="margin-top:50px;">
     <tr>
        <td >
+         <a href="{{URL('course')}}" style="color:black; text-decoration:none;">
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
                 <img src="{{asset('style/img/01.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
             <p style="font-size:11px; text-align:center" >精选课程</p>
+         </a>
        </td>
        <td >
+       <a href="" style="color:black; text-decoration:none;">
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
                 <img src="{{asset('style/img/02.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
             <p style="font-size:11px; text-align:center">精品系列课程</p>
+          </a> 
        </td>
       <td >
+      <a href="" style="color:black; text-decoration:none;">
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
                 <img src="{{asset('style/img/03.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
             <p style="font-size:11px; text-align:center">热门推荐</p>
+        </a>
       </td>
       <td>
+      <a href="" style="color:black; text-decoration:none;">
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
                 <img src="{{asset('style/img/04.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
             <p style="font-size:11px; text-align:center">更多</p>
+        </a> 
       </td>
       </tr>
      

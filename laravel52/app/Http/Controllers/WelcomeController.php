@@ -15,6 +15,23 @@ class WelcomeController extends Controller{
         return view('welcome.welcome');
     }
 
+/**
+ * 
+ * 直播跳转首页
+ * @return [type] [description]
+ */
+    public function index(){
+    	return view('welcome.welcome');
+    }
+
+/** 
+ *
+ * 精选课程
+ */
+ public function course(){
+    return view('welcome.course');
+ }
+
 
     
    
