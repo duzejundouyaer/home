@@ -16,6 +16,8 @@ class MoreController extends Controller{
      	return view('more.more');
      }
 
+     
+
 }
 
 ?>

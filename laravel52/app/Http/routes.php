@@ -13,6 +13,8 @@
 
 
 Route::get('/','WelcomeController@welcome');//首页
+Route::get('course','WelcomeController@course');//精选课程
+Route::get('index','WelcomeController@index');//直播回首页
 
 Route::get('center','CenterController@center');//个人中心
 Route::get('myinfo','CenterController@myinfo');//个人资料
