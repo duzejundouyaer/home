@@ -56,12 +56,12 @@
                                </td>
                         </tr>
                        </table>
-             </div>
+                                   </div>
               <div>
                  <ul class="list" >
-                    <li style="background-color:#E6E6FA;border:0px" class="item item-toggle item-button-right icon ion-ios-calendar-outline">
+                    <li class="item item-button-right icon ion-ios-folder-outline">
                       我的订单
-                       <a class="button button-clear icon ion-ios-arrow-right"></a>
+                       <a href="{{URL('myinfo')}}" class="button button-clear icon ion-ios-arrow-right"></a>
                     </li>
                  </ul>
                  
