@@ -47,7 +47,7 @@
                             <li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2" style="clear: both;border-top: 1px slateblue solid;border-bottom: none"><?=$val->type_name?>
                                 <ul>
                                     <?php foreach($val->pp as $k=>$v){?>
-                                        <li style="float: left"><a href="{{URL('')}}"><?=$v->type_name?></a></li>
+                                        <li style="float: left"><a href="{{URL('/curr')}}?id=<?=$v->type_id?>"><?=$v->type_name?></a></li>
                                     <?php }?>
                                 </ul>
                             </li>

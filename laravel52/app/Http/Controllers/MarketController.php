@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use DB;
 use App\User;
+use App\Cur;
 class MarketController extends Controller{
 
 /**
@@ -24,6 +25,14 @@ class MarketController extends Controller{
         return view('market.market',['types'=>$types]);
     }
 
+    public function curr(){
+        $id=Input::get('id');
+        //echo $id;
+        $cur = new Cur();
+        $data=$cur->searchCurType($id);
+//        print_r($data);
+        return view('market.list',['data'=>$data]);
+    }
 
 
 /**
@@ -32,16 +41,8 @@ class MarketController extends Controller{
  */
 
      public function shopcart(){
-
-      return view('shopcart.shopcart');
-
-
+         return view('shopcart.shopcart');
      }
-
-
-
-
-
 
    }
 
