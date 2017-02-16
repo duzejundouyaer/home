@@ -55,37 +55,13 @@
                     </ul>
                     <?php }?>
                 </div>
-
-            {{--<div class="content">--}}
-                {{--<ul class="by">--}}
-                    {{--<li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2">精剪</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">面膜保湿</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">去痘抗痘</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">化妆品</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-            {{--<div class="content">--}}
-                {{--<ul class="by">--}}
-                    {{--<li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2">超市购物</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">商场购物</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-            {{--<div class="content">--}}
-                {{--<ul class="by">--}}
-                    {{--<li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2">地图</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">充值话费</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">58同城</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
         </div>
     </div>
 </div>
 	<!-- 底部-->
     @include('master')
   </body>
-  {{--<script src="{{asset('jquery-2.1.1.min.js')}}"></script>--}}
-  {{--<script src="{{asset('style/js/ionic.bundle.min.js')}}"></script>--}}
-  {{--<script src="{{asset('style/js/common.js')}}"></script>--}}
   <script src="{{asset('jquery-2.1.1.min.js')}}" type="text/javascript"></script>
+{{--  <script src="{{asset('style/js/ionic.bundle.min.js')}}"></script>--}}
   <script src="{{asset('style/js/common.js')}}" type="text/javascript"></script>
 </html>
