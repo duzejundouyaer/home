@@ -16,6 +16,8 @@ Route::get('/','WelcomeController@welcome');//首页
 
 Route::get('center','CenterController@center');//个人中心
 Route::get('myinfo','CenterController@myinfo');//个人资料
+Route::post('insert_info','CenterController@updateInfo');//修改个人资料
+Route::get('mycart','CenterController@cart_info');//修改个人资料
 
 Route::get('market','MarketController@market');//课程详情
 Route::get('shopcart','MarketController@shopcart');//购物车
