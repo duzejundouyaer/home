@@ -43,3 +43,4 @@ Route::get('only','LoginController@only');//注册唯一性
 //登录
 Route::post('checklogin','LoginController@checklogin');//注册唯一性
 Route::any('qqlogin','LoginController@qqlogin');//qq登录
+Route::any('weibo','LoginController@weibo');//微博登录
