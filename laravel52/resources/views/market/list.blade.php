@@ -109,7 +109,7 @@
 
 <!--顶部-->
 <div class="bar bar-header bar-positive  " >
-    <a class="button button-clear icon ion-ios-arrow-left" href="{{URL('index')}}"></a>
+    <a class="button button-clear icon ion-ios-arrow-left" onclick="history.go(-1);"></a>
     <h1 class="title">课程列表</h1>
 
 </div>
@@ -125,21 +125,21 @@
                     <li>
                         <div class="bord">
                             <div class="lt">
-                                <a href="article.htm" title=""><img src="http://more.com/<?=$val->cur_img?>" height="50" width='50' alt=""/></a>
+                                <a href="{{URL('cont')}}?cur_id=<?=$val['cur_id']?>" title=""><img src="http://more.com/<?=$val['cur_img']?>" height="50" width='50' alt=""/></a>
                             </div>
                             <div class="rt">
-                                <a href="#" title="">
+                                <a href="{{URL('cont')}}?cur_id=<?=$val['cur_id']?>" title="">
                                     <div class="rt1">
-                                        <h3><?=$val->cur_name?></h3>
+                                        <h3><?=$val['cur_name']?></h3>
                                         <p></p>
-                                        <a href="javascript:void(0);"><p>讲师：<?=$val->teacher_name?></p></a>
+                                        <a href="javascript:void(0);"><p>讲师：<?=$val['teacher_name']?></p></a>
                                     </div>
                                 </a>
                                 <div class="rt2">
                                     <p class="orange">
                                         <i class="f15 mr5">&yen;</i>
                                         <i class="f20">
-                                            <?=$val->cur_price?>
+                                            <?=$val['cur_price']?>
                                         </i>
                                         <br/>
                                         <a style="font-size: 25px;" alt="收藏">❤</a>
