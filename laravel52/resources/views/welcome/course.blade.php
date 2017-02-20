@@ -5,7 +5,7 @@
     <title>精选课程</title>
 
     <link href="{{asset('style/css/ionic.min.css')}}" rel="stylesheet">
-	<link href="{{asset('css/share.css')}}" rel="stylesheet"/>
+    <link href="{{asset('css/share.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/index.css')}}" rel="stylesheet"/>
     <script src="{{asset('js/all.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/layer.js')}}"></script>
@@ -108,9 +108,9 @@
 
 <!--顶部-->
 <div class="bar bar-header bar-positive  " >
-	<a class="button button-clear icon ion-ios-arrow-left" href="{{URL('index')}}"></a>
+    <a class="button button-clear icon ion-ios-arrow-left" href="{{URL('index')}}"></a>
      <h1 class="title">精选课程</h1>
-	 
+     
    </div>
 <!--内容-->   
 
@@ -118,34 +118,36 @@
    <ion-scroll  direction="y" scrollbar-y="false" style="width: 100%; height: 100%">
    
              <div style="width:70px;height:70px;"></div>
-              <div class="NewsList">
+             <?php foreach($res as $key=>$val){?>
+       <div class="NewsList">
         <ul class="clearfix classul">    
-                     <li>
+                 <li>
                     <div class="bord">
                         <div class="lt">
-                            <a href="article.htm" title=""><img src="http://m.pxto.com.cn/uploads/201608/04/57a2e1cb7e370.jpg" height="50px;" width='50px;' alt=""/></a>
+                            <a href="#" title=""><img src="<?php echo $val['cur_img'];?>" height="50px;" width='50px;' alt=""/></a>
                         </div>
                         <div class="rt">
                             <a href="#" title="">
                                 <div class="rt1">
-                                    <h3>ACG艺术留学培训班,ACG艺术留学教育培训,武汉艺术专业出国留学</h3>
-                                    <!-- <p>武汉艺术留学作品集培训</p>
-                                    <p>武汉武昌区中北路 | 详细地图</p> -->
-                                    <a href="javascript:void(0)027-86730762"><p>027-86730762</p></a>
+                                    <h3><?php echo $val['cur_name'];?></h3>
+                                    <p><?php echo $val['cur_describe']?></p>
+                                   <!--  <p>武汉武昌区中北路 | 详细地图</p> -->
+                                 
                                </div>
                             </a>
                             <div class="rt2">
-                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20">0</i></p>
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $val['cur_price'];?></i></p>
                              
                            </div>
                         </div>
                     </div>
             </li>
-                 </ul>
+          </ul>
                  
                  
   </div>
-  <section class="indexMore bgf6 bb clearfix">
+  <?php  }?>
+  <!-- <section class="indexMore bgf6 bb clearfix">
         <div class="pl15 mypage">
             <span class="hover">1</span>
             <a href="javascript:void(0)/wuhan/kc-p_2">2</a>
@@ -159,7 +161,7 @@
             <a  href="javascript:void(0)/wuhan/kc-p_2" class="pl10 pr10">下一页<i class="pl5 fm2"></i></a> 
             <a href="javascript:void(0)javascript:void(0)" class="more_r more" id="back-to-top">回到顶部<i></i></a>
         </div>
-    </section>
+    </section> -->
     <div style="height:50px;width:100%;clear:all"></div>
      </ion-scroll>
     </ion-view>

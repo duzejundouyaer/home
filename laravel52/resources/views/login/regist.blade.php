@@ -63,6 +63,7 @@
     })
     $(document).ready(function(){
         $("#btn").click(function(){
+            var a=time(this);
 			var tel = $('#username').val();
             if(tel == ''){
                 $("#errorInfo").html("请输入手机号");
@@ -81,7 +82,7 @@
                             $("#errorInfo").html("该手机号已被注册");
                             return false;
                         }else{
-                            time(this)
+                            a;
                             $.ajax({
                                 type: "get",
                                 url: "{{URL('short')}}",
@@ -95,26 +96,26 @@
 						}
                     }
                 });
-
 			}
         })
-        var wait=60;
-        function time(o) {
-            if (wait == 0) {
-                o.removeAttribute("disabled");
-                o.value="点击获取验证码";
-                wait = 60;
-            } else {
-                o.setAttribute("disabled", true);
-                o.value="重新发送(" + wait + ")";
-                wait--;
-                setTimeout(function() {
-                        time(o)
-                    },
-                    1000)
-            }
-        }
     })
+
+    var wait=60;
+    function time(o) {
+        if (wait == 0) {
+            o.removeAttribute("disabled");
+            o.value="免费获取验证码";
+            wait = 60;
+        } else {
+            o.setAttribute("disabled", true);
+            o.value="重新发送(" + wait + ")";
+            wait--;
+            setTimeout(function() {
+                    time(o)
+                },
+                1000)
+        }
+    }
 </script>
 <script>
     $("#form").submit(function(){

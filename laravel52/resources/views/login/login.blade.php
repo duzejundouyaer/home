@@ -43,20 +43,11 @@
 			<p style="font-size: 16px; color:red;" id="errorInfo">{{session('errors')}}</p>
 		@endif
 	</div>
-	<a href="#" onclick='toLogin()'>
-		<img src="{{asset('style/img/qq.png')}}"></a>
+		<a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101371415&redirect_uri=http://xiaodu.duzejun.cn/&state=test&display=mobile">
+			<img src="{{asset('style/img/qq.png')}}">
+		</a>
+	<a href="https://api.weibo.com/oauth2/authorize?client_id=897879465&redirect_uri=http://study.duzejun.cn/weibo&display=mobile"><img src="{{asset('style/img/xin.png')}}" alt=""></a>
 </div>
 </body>
 </html>
 <script src="{{asset('style/js/jquery.js')}}"></script>
-<script>
-    function toLogin()
-    {
-        //以下为按钮点击事件的逻辑。注意这里要重新打开窗口
-        //否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
-        //var A=window.open("http://127.0.0.1/Connect2.1/example/oauth/index.php","TencentLogin","width=900,height=800,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1");
-        location.href="http://127.0.0.1/Connect2.1/example/oauth/index.php";
-    }
-</script>
-{{--code=0EBB7D797ECB71925EAF2E852FA0A550&state=8d2132b4c8d1574239c97c3aca85cde1--}}
-{{--code=B99EBB4382ED6131D7A7E59F1C20534D&state=213b5454fda003b6c34db6739b2c1aeb--}}

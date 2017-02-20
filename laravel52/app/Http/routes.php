@@ -13,11 +13,24 @@
 
 
 Route::get('/','WelcomeController@welcome');//首页
-Route::get('course','WelcomeController@course');//精选课程
+Route::get('search','WelcomeController@search');//搜索
+Route::get('city_info','WelcomeController@get_city');//城市
+Route::get('course','WelcomeController@course');//精选课程    
 Route::get('index','WelcomeController@index');//直播回首页
+Route::get('morer','WelcomeController@morer');//首页更多
+Route::get('carousel','WelcomeController@carousel');//首页轮播图
+
+Route::get('selected','WelcomeController@selected');//精选系列课程
+Route::get('recommend','WelcomeController@recommend');//热门推荐
 
 Route::get('center','CenterController@center');//个人中心
 Route::get('myinfo','CenterController@myinfo');//个人资料
+Route::post('insert_info','CenterController@updateInfo');//修改个人资料
+Route::get('mycart','CenterController@cart_info');//我的购物车
+Route::get('del_cart','CenterController@delCart');//删除购物车信息
+Route::get('myorder','CenterController@order_list');//个人订单列表
+Route::get('feedback','CenterController@user_Feed');//反馈界面
+Route::post('sub_feed','CenterController@subFeed');//反馈提交
 
 Route::get('market','MarketController@market');//全部课程分类
 Route::get('curr','MarketController@curr');//全部课程分类
@@ -47,3 +60,4 @@ Route::get('only','LoginController@only');//注册唯一性
 //登录
 Route::post('checklogin','LoginController@checklogin');//注册唯一性
 Route::any('qqlogin','LoginController@qqlogin');//qq登录
+Route::any('weibo','LoginController@weibo');//微博登录
