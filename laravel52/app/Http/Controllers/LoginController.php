@@ -228,8 +228,15 @@ class LoginController extends Controller{
             'user_pwd'=>"$pwd",
             'addtime'=>"$addtime",
             'nickname'=>$name,
+            'login_method' =>0,
+            'img'=>'./style/img/1a.png'
         );
         $re = DB::table('study_user')->insert($user);
+        if($re){
+            return redirect('/');
+        }else{
+            return redirect('regist');
+        }
     }
     /**
      * 短信
