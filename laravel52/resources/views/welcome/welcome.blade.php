@@ -4,8 +4,11 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>首页</title>
     <link href="{{asset('style/css/ionic.min.css')}}" rel="stylesheet">
-    <script src="{{asset('style/js/ionic.bundle.min.js')}}"></script>
-    <script type="text/javascript">
+    <link href="{{asset('css/share.css')}}" rel="stylesheet"/>
+    <link href="{{asset('css/index.css')}}" rel="stylesheet"/>
+     <script src="{{asset('style/js/ionic.bundle.min.js')}}"></script>
+     <script src="{{asset('js/jquery-1.8.0.min.js')}}"></script>
+     <script type="text/javascript">
     angular.module('ionicApp', ['ionic'])
 
     .controller('SlideController', function($scope) {
@@ -16,6 +19,85 @@
     
     
     </script>
+     <style type="text/css">
+    .lei {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .classify_list {
+        display: block;
+        float: left;
+        width: 24.7%;
+        text-align: center;
+        cursor: pointer;
+        height: 40px;
+
+    }
+
+    .classify_list span {
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .classify_list .firstspan {
+        border-right: 1px solid #c0c0c0;
+        border-left: 1px solid #c0c0c0;
+    }
+    .list_ul {
+        position: relative;
+        left: 0;
+        text-align: left;
+        z-index: 10;
+        background-color: #f2f2f2;
+        display: none;
+    }
+    .list_ul li ,.list_ul li span{
+        height: 35px;
+        line-height:35px;
+        padding-left: 5px;
+        border-bottom: 0.05rem solid #dadada;
+    }
+
+    .sta {
+        background: #fff;
+    }
+
+    .lastUL {
+        width: 300%;
+        padding: 0 0.5rem;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        display: none;
+    }
+
+    .classify_list:nth-child(2) .list_ul li span {
+        border-right: none;
+        border-left: none;
+    }
+
+    .classify_list:nth-child(3) .list_ul li span {
+        border-right: none;
+        border-left: none;
+    }
+
+    .list_ul li a {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .showlist {
+        display: block;
+    }
+
+
+</style>
     <style type="text/css">
     .slider {
       height: 24%;
@@ -49,20 +131,21 @@
 <body>
 <!--顶部-->
  <div class="bar bar-header bar-positive item-input-inset ">
-            <a class=" button button-clear icon ion-location"></a>邯郸&nbsp;
+            <a class=" button button-clear icon ion-location"></a><span id="city"></span>&nbsp;
                 <label class="item-input-wrapper ">
-                    <i class="icon ion-ios-search  placeholder-icon"></i>
-                    <input type="search" placeholder="最热/类型/关键字">
+                    
+                    <input type="search" id="search" placeholder="最热/类型/关键字">
+                    <a class="icon ion-ios-search  placeholder-icon" id="sea" ></a>
                 </label>
-                <a class="button button-clear icon ion-navicon"></a>
+                
         
          
     </div>
-    
+  <div id="div1">
 <!--内容-->
  <ion-view title="Home" hide-nav-bar="true">
   <ion-scroll  direction="y" scrollbar-y="false" style="width: 100%; height: 100%">
-<div>
+<div style=" margin-bottom:110px;">
    
     <div>
     <table width="100%" border="1" cellpadding="1" cellspacing="1" style="margin-top:50px;">
@@ -76,7 +159,7 @@
          </a>
        </td>
        <td >
-       <a href="" style="color:black; text-decoration:none;">
+       <a href="{{URL('selected')}}" style="color:black; text-decoration:none;">
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
                 <img src="{{asset('style/img/02.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
@@ -84,7 +167,7 @@
           </a> 
        </td>
       <td >
-      <a href="" style="color:black; text-decoration:none;">
+      <a href="{{URL('recommend')}}" style="color:black; text-decoration:none;">
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
                 <img src="{{asset('style/img/03.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
@@ -92,7 +175,7 @@
         </a>
       </td>
       <td>
-      <a href="" style="color:black; text-decoration:none;">
+      <a href="{{URL('morer')}}" style="color:black; text-decoration:none;">
             <div style="margin:10px auto;width:40px;height:40px;border-radius:40px;overflow:hidden;">
                 <img src="{{asset('style/img/04.png')}}" style="margin:0;width:100%;height:100%;">
             </div>
@@ -123,126 +206,139 @@
     <p></p>
 
       <div>
-         <p style="background-color:#99BBFF  ">精选课程</p>
-         <ul class="list">
-            <li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li>
-            <li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li><li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li><li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li>
-         </ul>
-      </div>
-
-      <div>
-         <p style="background-color:#99BBFF  ">职业路径</p>
-         <ul class="list">
-            <li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li>
-            <li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li><li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li><li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li>
-         </ul>
-      </div>
-      
-      <div>
-         <p style="background-color:#99BBFF  ">精品系列课程</p>
-         <ul class="list">
-            <li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li>
-            <li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li><li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li><li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li>
-         </ul>
-      </div>
-      
-      <div>
          <p style="background-color:#99BBFF  ">热门推荐</p>
-         <ul class="list">
-            <li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li>
-            <li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li><li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li><li > 
-                <p>只要让你开心就好</p>
-                 <a class="item item-thumbnail-left">
-                   <img src="{{asset('style/img/3.jpg')}}"/>
-                 </a>
-            </li>
-         </ul>
+        <?php foreach ($he as $key => $value) {?>
+          
+        
+              <div class="NewsList">
+                 <ul class="clearfix classul">    
+                     <li>
+                    <div class="bord">
+                        <div class="lt">
+                            <a href="" title=""><img src="<?php echo $value['cur_img'] ?>" height="50px;" width='50px;' alt=""/></a>
+                        </div>
+                        <div class="rt">
+                            <a href="#" title="">
+                                <div class="rt1">
+                                    <h3><?php echo $value['cur_name'] ?></h3>
+                                    <p><?php echo $value['cur_describe'] ?></p>
+                                   <!--  <p>武汉武昌区中北路 | 详细地图</p> -->
+                                    <!-- <a href="javascript:void(0)027-86730762"><p>027-86730762</p></a> -->
+                               </div>
+                            </a>
+                            <div class="rt2">
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price'] ?></i></p>
+                             
+                           </div>
+                        </div>
+                      </div>
+                   </li>
+                 </ul>
+                 
+                 
+  </div>
+  <?php }?>
       </div>
-      
-    </div>
-    </div>
-    </div>
+
+       <div>
+         <p style="background-color:#99BBFF  ">精选系列课程</p>
+        <?php foreach ($re as $key => $value) {?>
+          
+        
+              <div class="NewsList">
+                 <ul class="clearfix classul">    
+                     <li>
+                    <div class="bord">
+                        <div class="lt">
+                            <a href="article.htm" title=""><img src="<?php echo $value['cur_img'] ?>" height="50px;" width='50px;' alt=""/></a>
+                        </div>
+                        <div class="rt">
+                            <a href="#" title="">
+                                <div class="rt1">
+                                    <h3><?php echo $value['cur_name'] ?></h3>
+                                    <p><?php echo $value['cur_describe'] ?></p>
+                                   <!--  <p>武汉武昌区中北路 | 详细地图</p> -->
+                                    <!-- <a href="javascript:void(0)027-86730762"><p>027-86730762</p></a> -->
+                               </div>
+                            </a>
+                            <div class="rt2">
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price'] ?></i></p>
+                             
+                           </div>
+                        </div>
+                      </div>
+                   </li>
+                 </ul>
+                 
+                 
+  </div>
+  <?php }?>
+      </div>
+      <div>
+         <p style="background-color:#99BBFF  ">精选课程</p>
+        <?php foreach ($res as $key => $value) {?>
+          
+        
+              <div class="NewsList">
+                 <ul class="clearfix classul">    
+                     <li>
+                    <div class="bord">
+                        <div class="lt">
+                            <a href="article.htm" title=""><img src="<?php echo $value['cur_img'] ?>" height="50px;" width='50px;' alt=""/></a>
+                        </div>
+                        <div class="rt">
+                            <a href="#" title="">
+                                <div class="rt1">
+                                    <h3><?php echo $value['cur_name'] ?></h3>
+                                    <p><?php echo $value['cur_describe'] ?></p>
+                                  
+                               </div>
+                            </a>
+                            <div class="rt2">
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price'] ?></i></p>
+                             
+                           </div>
+                        </div>
+                      </div>
+                   </li>
+                 </ul>
+              </div>
+          <?php }?>
+      </div>
       
     </div>
 
     </div>
+    <div style="height:2px;width:100%;clear:all"></div>
      </ion-scroll>
     </ion-view>
+   </div>  
     @include('master')
   </body>
 </html>
+<script>
+ $(function(){
+     $.ajax({
+   type: "GET",
+   url: "{{URL('city_info')}}",
+  // data: "name=John&location=Boston",
+   dataType:"json",
+   success: function(msg){
+     $("#city").html(msg.result.att);
+   }
+  });
+   //搜索
+  $("#sea").click(function(){
+    var search=$('#search').val();
+    //alert(search);
+    $.get("{{URL('search')}}",{"search":search},function(msg){
+        var str='';
+      console.log(msg);
+         for(var i=0;i<msg.length;i++){
+              str+="<div class='NewsList'><ul class='clearfix classul'><li><div class='bord'><div class='lt'><a href='#' ><img src="+msg[i]['cur_img']+" height='50px;' width='50px;' /></a></div><div class='rt'><a href='#' ><div class='rt1'><h3>"+msg[i]['cur_name']+"</h3><p>"+msg[i]['cur_describe']+"</p></div></a><div class='rt2'><p class='orange'><i class='f15 mr5'>&yen;</i><i class='f20'>"+msg[i]['cur_price']+"</i></p></div></div></div></li></ul></div>";
+       }
+        $("#div1").html(str);
+    },'json')
+   })
+ })
+</script>
