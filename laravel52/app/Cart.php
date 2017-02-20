@@ -21,4 +21,12 @@ class Cart extends Model
         $cartInfo = $this->where('user_id',$userInfo['user_id'])->get()->toArray();
         return $cartInfo;
 	}
+	/**
+	 * 根据ID删除用户单条购物车信息
+	 */
+	public function del_cart($cart_id)
+	{
+        $res = $this->where('cart_id',$cart_id)->delete();
+        return $res;
+	}
 }
