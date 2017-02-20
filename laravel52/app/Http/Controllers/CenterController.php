@@ -20,9 +20,10 @@ class CenterController extends Controller{
     public function center(Request $request){
     	//$request->session()->put('key', '黄文靖');
     	//$value = $request->session()->pull('key', 'default');
-      $session = new Session();
-       $session->set('username','Q.');
-        return view('center.center');
+        $session = new Session();
+        $nickname = $session->get('nickname');
+        $arr = DB::table('study_user')->where('nickname',$nickname)->first();
+        return view('center.center',['arr'=>$arr]);
     }
   
 
@@ -31,7 +32,6 @@ class CenterController extends Controller{
   *
   * 资料
   */
- 
     public function myinfo(Request $request)
     {
        $session = new Session;
@@ -45,8 +45,7 @@ class CenterController extends Controller{
             $User = new User();
             $Info = $User->infomation($nickname);
           }
-       
-    	return view('myinfo.myinfo',['info'=>$Info]);
+        return view('myinfo.myinfo',['info'=>$Info]);
     }
 /**
  * 修改个人资料
