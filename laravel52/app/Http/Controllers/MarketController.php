@@ -16,12 +16,16 @@ class MarketController extends Controller{
         $types = DB::table('study_type')->where('type_is_show',1)->where('parent_id','=',0)->get();
         //print_r($types);die;
         foreach($types as $key=>$val){
-            $val->pp=DB::table('study_type')->where('type_is_show',1)->where('parent_id','=',$val->type_id)->get();
-            foreach($val->pp as $k=>$v){
-                $v->pp=DB::table('study_type')->where('type_is_show',1)->where('parent_id','=',$v->type_id)->get();
+            $types[$key]['pp']=DB::table('study_type')->where('type_is_show',1)->where('parent_id','=',$val['type_id'])->get();
+            foreach($types[$key]['pp'] as $k=>$v){
+                $types[$key]['pp'][$k]['pp']=DB::table('study_type')->where('type_is_show',1)->where('parent_id','=',$v['type_id'])->get();
+                //print_r($v['type_id']);
             }
+            //print_r($types[$key]['pp']);
         }
-        //print_r($types);die;
+//        print_r($types);
+//        print_r($info);
+//        die;
         return view('market.market',['types'=>$types]);
     }
 
@@ -33,15 +37,37 @@ class MarketController extends Controller{
 //        print_r($data);
         return view('market.list',['data'=>$data]);
     }
-
-
-/**
- * 购物车
- * 
- */
-
+    //////详情页
+    public function cont(){
+        $id=Input::get('cur_id');
+        $cur = new Cur();
+        $curone=$cur->searchCurone($id);
+        $kejie=$cur->curOne($id);
+        //print_r($kejie);die;
+        return view('market.article',['curone'=>$curone,'kejie'=>$kejie]);
+    }
+    //播放
+    public function bfang(){
+        $id=Input::get('fid');
+        $cur_id=Input::get('cur_id');
+        $cur = new Cur();
+        $kejie=$cur->curOne($cur_id);
+        $curone=$cur->searchCurone($cur_id);
+        $onetv=DB::table('study_chapter')->where('id',$id)->first();
+//        print_r($curone);die;
+        return view('market.video',['curone'=>$curone,'onetv'=>$onetv,'kejie'=>$kejie]);
+    }
+    ///加入购物车
      public function shopcart(){
-         return view('shopcart.shopcart');
+         $id=Input::get("id");
+
+         $info=[
+           'status'=>0,
+           'msg'=>"加入成功",
+         ];
+         return $info;
+//         return json_encode($info);
+//         return view('shopcart.shopcart');
      }
 
    }
