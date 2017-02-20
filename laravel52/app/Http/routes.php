@@ -28,6 +28,8 @@ Route::post('shopcart','MarketController@shopcart');//加入购物车
 
 Route::get('more','MoreController@more');//更多
 
+Route::get('thisee','ThiseeController@thisee');//直播页
+
 
 
 
