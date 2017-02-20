@@ -35,3 +35,13 @@ Route::get('more','MoreController@more');//更多
 Route::get('login','LoginController@login');//登录
 Route::get('login_out','LoginController@login_out');//退出登录
 Route::get('regist','LoginController@regist');//注册
+
+//发短信
+Route::get('short','LoginController@short');//注册发送短信
+Route::get('contrast','LoginController@contrast');//对比验证码
+Route::post('add','LoginController@add');//注册
+Route::get('only','LoginController@only');//注册唯一性
+
+//登录
+Route::post('checklogin','LoginController@checklogin');//注册唯一性
+Route::any('qqlogin','LoginController@qqlogin');//qq登录
