@@ -21,8 +21,10 @@ Route::get('myinfo','CenterController@myinfo');//个人资料
 
 Route::get('market','MarketController@market');//全部课程分类
 Route::get('curr','MarketController@curr');//全部课程分类
+Route::get('cont','MarketController@cont');//课程详情
+Route::get('bfang','MarketController@bfang');//课程详情
 
-Route::get('shopcart','MarketController@shopcart');//购物车
+Route::post('shopcart','MarketController@shopcart');//加入购物车
 
 Route::get('more','MoreController@more');//更多
 

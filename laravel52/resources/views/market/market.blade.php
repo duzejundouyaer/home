@@ -34,7 +34,7 @@
             <div>
                 <ul class="sy">
                     <?php foreach($types as $key=>$val){?>
-                        <li><?php echo $val->type_name?></li>
+                        <li><?php echo $val['type_name']?></li>
                     <?php }?>
                 </ul>
             </div>
@@ -43,11 +43,11 @@
                 <div class="content">
                     <?php foreach($types as $keys=>$vals){ ?>
                     <ul class="by" style="display: none">
-                        <?php foreach($vals->pp as $key=>$val){?>
-                            <li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2" style="clear: both;border-top: 1px slateblue solid;border-bottom: none"><?=$val->type_name?>
+                        <?php foreach($vals['pp'] as $key=>$val){?>
+                            <li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2" style="clear: both;border-top: 1px slateblue solid;border-bottom: none"><?=$val['type_name']?>
                                 <ul>
-                                    <?php foreach($val->pp as $k=>$v){?>
-                                        <li style="float: left"><a href="{{URL('/curr')}}?id=<?=$v->type_id?>"><?=$v->type_name?></a></li>
+                                    <?php foreach($val['pp'] as $k=>$v){?>
+                                        <li style="float: left"><a href="{{URL('/curr')}}?id=<?=$v['type_id']?>"><?=$v['type_name']?></a></li>
                                     <?php }?>
                                 </ul>
                             </li>
