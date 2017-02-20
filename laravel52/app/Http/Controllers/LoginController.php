@@ -16,7 +16,7 @@ class LoginController extends Controller{
  */
     public function login(){
         $session = new Session;
-        $code = $session->get('tel');
+        $code = $session->get('nickname');
         if(!empty($code)){
             return redirect('/');
             die;
@@ -48,11 +48,11 @@ class LoginController extends Controller{
         }
         $arr = DB::table('study_user')->where('user_tel',$tel)->first();
         if($arr){
-            if($pwd !=Crypt::decrypt($arr->user_pwd)){
+            if($pwd !=Crypt::decrypt($arr['user_pwd'])){
                 return back()->with('errors','密码错误!');
             }else{
                 $session = new Session;
-                $session->set('tel',$tel);
+                $session->set('nickname',$arr['nickname']);
                 return redirect('/');
             }
         }else{
@@ -61,12 +61,121 @@ class LoginController extends Controller{
 
     }
     /**
+     * 获取ip
+     */
+    function getIP()
+    {
+        $ip=getenv('REMOTE_ADDR');
+        $ip_ = getenv('HTTP_X_FORWARDED_FOR');
+        if (($ip_ != "") && ($ip_ != "unknown"))
+        {
+            $ip=$ip_;
+        }
+        return $ip;
+    }
+    /**
+     * 微博登录
+     */
+    public function Weibo()
+    {
+        date_default_timezone_set('PRC');
+        $code = @$_GET['code'];
+        $url = "https://api.weibo.com/oauth2/access_token";
+        $data = "client_id=897879465&client_secret=19cb3e358724b0a490559cf0f4814183&grant_type=authorization_code&code=$code&redirect_uri=http://study.duzejun.cn/weibo";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($ch, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        //打印获得的数据
+        //{"access_token":"2.00xiNHcG0r96lyfa9799e6f50YiDlF","remind_in":"157679999","expires_in":157679999,"uid":"6060018815"}
+        $tokens = json_decode($output,true);
+        //请求查询用户access_token的授权相关信息
+        $token = $tokens['access_token'];
+        $url = "https://api.weibo.com/oauth2/get_token_info";
+        $arr = "access_token=".$token;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // post数据
+        curl_setopt($ch, CURLOPT_POST, 1);
+        // post的变量
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $user = json_decode($result,true);
+        $uid = $user['uid'];
+        $info = file_get_contents("https://api.weibo.com/2/users/show.json?access_token=$token&uid=$uid");
+        $userinfo = json_decode($info,true);
+        //先查询用户是否存在本网站中
+        $res = DB::table('study_user')->where('open_id','=',$userinfo['id'])->get();
+        if($res){
+            //有的话直接登陆  存session
+            $session = new Session;
+            $session->set('nickname',$userinfo['name']);
+            return redirect('/');
+        }else{
+            //没有的话相当于注册  一个
+            $addtime = date("y-m-d h:i:s");
+            $user=array(
+                'open_id'=>$userinfo['id'],
+                'login_method'=>2,
+                'img'=>$userinfo['profile_image_url'],
+                'addtime'=>$addtime,
+                'nickname'=>$userinfo['name'],
+            );
+            $re = DB::table('study_user')->insert($user);
+            if($re){
+                $session = new Session;
+                $session->set('nickname',$userinfo['name']);
+                return redirect('/');
+            }else{
+                return redirect('login');
+            }
+        }
+    }
+    /**
      * qq登录
      */
     public function Qqlogin()
     {
-        $token = Input::get();
-        echo $token;
+        date_default_timezone_set('PRC');
+        $token = Input::get('token');
+        //header('Location: http://music.daphp.top/login_qq?code='.$open_id.'&token='.$open_id);
+        $open_id = file_get_contents('https://graph.qq.com/oauth2.0/me?access_token='.$token);
+        $pre = '#callback\((.*)\)#isU';
+        preg_match($pre,$open_id,$user);
+        $open_id = json_decode($user[1],true);
+        $userinfo = file_get_contents("https://graph.qq.com/user/get_user_info?access_token=$token&oauth_consumer_key=101371415&openid=".$open_id['openid']);
+        $users = json_decode($userinfo,true);
+        //查一下此用户是否在本网战使用qq登陆过
+        $res = DB::table('study_user')->where('open_id','=',$open_id['openid'])->get();
+        if($res){
+            //如果有直接存session  进首页
+            $session = new Session;
+            $session->set('nickname',$users['nickname']);
+            return redirect('/');
+        }else{
+            //没有的话相当于注册  一个
+            $addtime = date("y-m-d h:i:s");
+            $user=array(
+                'open_id'=>$open_id['openid'],
+                'login_method'=>1,
+                'img'=>$users['figureurl_2'],
+                'addtime'=>$addtime,
+                'nickname'=>$users['nickname'],
+            );
+            $re = DB::table('study_user')->insert($user);
+            if($re){
+                return redirect('/');
+            }else{
+                return redirect('login');
+            }
+        }
     }
     /**
      * f发送短信验证
@@ -113,10 +222,12 @@ class LoginController extends Controller{
         $pwd = Crypt::encrypt($request['pwd']);
         $tel = $request['tel'];
         $addtime = date("Y-m-d h:i:s");
+        $name = 'duoxue'.time();
         $user=array(
             'user_tel'=>"$tel",
             'user_pwd'=>"$pwd",
             'addtime'=>"$addtime",
+            'nickname'=>$name,
         );
         $re = DB::table('study_user')->insert($user);
     }
