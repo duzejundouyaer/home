@@ -54,11 +54,19 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
+<<<<<<< HEAD
             'host' => env('DB_HOST', '101.200.63.51'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'study'),
             'username' => env('DB_USERNAME', 'study'),
             'password' => env('DB_PASSWORD', '123456'),
+=======
+            'host' =>'101.200.63.51',
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'study',
+            'username' => 'study',
+            'password' =>123456,
+>>>>>>> 85a7e8562aa65e930a7cebbb5661396af2734465
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

@@ -30,4 +30,6 @@ return [
 
     'compiled' => realpath(storage_path('framework/views')),
 
+    ///////
+    'pagination' => 'partials/pagination' //自定义分页视图路径
 ];

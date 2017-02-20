@@ -34,7 +34,7 @@
             <div>
                 <ul class="sy">
                     <?php foreach($types as $key=>$val){?>
-                        <li><?php echo $val->type_name?></li>
+                        <li><?php echo $val['type_name']?></li>
                     <?php }?>
                 </ul>
             </div>
@@ -43,11 +43,11 @@
                 <div class="content">
                     <?php foreach($types as $keys=>$vals){ ?>
                     <ul class="by" style="display: none">
-                        <?php foreach($vals->pp as $key=>$val){?>
-                            <li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2" style="clear: both;border-top: 1px slateblue solid;border-bottom: none"><?=$val->type_name?>
+                        <?php foreach($vals['pp'] as $key=>$val){?>
+                            <li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2" style="clear: both;border-top: 1px slateblue solid;border-bottom: none"><?=$val['type_name']?>
                                 <ul>
-                                    <?php foreach($val->pp as $k=>$v){?>
-                                        <li style="float: left"><a href="{{URL('/curr')}}?id=<?=$v->type_id?>"><?=$v->type_name?></a></li>
+                                    <?php foreach($val['pp'] as $k=>$v){?>
+                                        <li style="float: left"><a href="{{URL('/curr')}}?id=<?=$v['type_id']?>"><?=$v['type_name']?></a></li>
                                     <?php }?>
                                 </ul>
                             </li>
@@ -55,37 +55,13 @@
                     </ul>
                     <?php }?>
                 </div>
-
-            {{--<div class="content">--}}
-                {{--<ul class="by">--}}
-                    {{--<li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2">精剪</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">面膜保湿</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">去痘抗痘</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">化妆品</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-            {{--<div class="content">--}}
-                {{--<ul class="by">--}}
-                    {{--<li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2">超市购物</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">商场购物</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-            {{--<div class="content">--}}
-                {{--<ul class="by">--}}
-                    {{--<li class="F_wd_top_con2_r_borb1 F_wd_top_con2_r_borb2">地图</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">充值话费</li>--}}
-                    {{--<li class="F_wd_top_con2_r_borb1">58同城</li>--}}
-                {{--</ul>--}}
-            {{--</div>--}}
         </div>
     </div>
 </div>
 	<!-- 底部-->
     @include('master')
   </body>
-  {{--<script src="{{asset('jquery-2.1.1.min.js')}}"></script>--}}
-  {{--<script src="{{asset('style/js/ionic.bundle.min.js')}}"></script>--}}
-  {{--<script src="{{asset('style/js/common.js')}}"></script>--}}
   <script src="{{asset('jquery-2.1.1.min.js')}}" type="text/javascript"></script>
+{{--  <script src="{{asset('style/js/ionic.bundle.min.js')}}"></script>--}}
   <script src="{{asset('style/js/common.js')}}" type="text/javascript"></script>
 </html>

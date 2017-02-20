@@ -13,28 +13,24 @@
     <div class="bar bar-header bar-positive  " >
 	<a class="button button-clear icon ion-ios-arrow-left" href="{{URL('center')}}"></a>
      <h1 class="title">我的资料</h1>
-	 
+	
+      <a class="button button-clear icon "  id="submit">保存</a>
+   
    </div>
-   <div class="scroll-content has-header">
+   <div class="scroll-content">
      
-		
 		 <div class="scroll-content has-header padding">
+		 <div style="margin:10px auto;width:100px;height:100px;border-radius:50px;overflow:hidden;">
+                      <img src="{{asset('style/img/3.jpg')}}" style="margin:0;width:100%;height:100%;">
+            </div>
 				<div class="list list-inset">
-				   <div class="item item-avatar-right">
-				     <img src="{{asset('style/img/3.jpg')}}"/> <p>头像</p>
-				   </div>
 					<label class="item item-input">
-					   用户名	<input type="text" value="张三" readonly="red" style="text-align:right;">
+					   昵称	<input type="text" id="nickname" value="{{$info['nickname']}}"  style="text-align:right;">
 					  </label>
-					<label class="item item-input">
-					   密码	<input type="password" value="11111" readonly="red" style="text-align:right;">
+					  <label class="item ">
+					   个人介绍	<textarea name="" calss="myInfo" placeholder="编辑个人介绍(不超过80个字)" id="desc" cols="50" rows="3" style="" value="">{{$info['user_desc']}}</textarea>
 					  </label>
-					  <label class="item item-input">
-					   性别	<input type="text" value="女" readonly="red" style="text-align:right">
-					  </label>
-					  <label class="item item-input">
-					   地址管理	<input type="text" value="邯郸学院" readonly="red" style="text-align:right">
-					  </label>
+					  <span style="margin-left:150px; color:red;" id="info"></span>
 				</div>
 		      <a class="button button-block button-positive" href="{{URL('login_out')}}">退出登录 </a>
 	    </div>	   
@@ -46,3 +42,41 @@
 </div>
 </body>	
 </html>
+<script type="text/javascript" src="{{asset('style/js/jquery.js')}}"></script>
+<script type="text/javascript">
+	$(function(){
+        $("#submit").click(function(){
+             var nickname = $("#nickname").val();
+             var desc = $("#desc").val();
+             var _token = "{{ csrf_token() }}";
+             if(nickname.length>5){
+                $("#info").html("昵称不能超过5个字");
+                return false;
+             }else if(nickname == ''){
+             	$("#info").html("请输入昵称");
+             	return false;
+             }else if(desc.length>80){
+             	$("#info").html("昵称不能超过80个字");
+             	return false;
+             }else{
+				 $.ajax({
+				   type: "POST",
+				   url: "{{URL('insert_info')}}",
+				   data: {nickname:nickname,desc:desc,_token:_token},
+				   success: function(msg){
+					   	if(msg==0){
+					   		$("#info").css("color","green");
+					    	$("#info").html("修改成功");
+					   	}else if(msg=='500')
+					   	{
+					   		$("#info").css("color","black");
+					   		$("#info").html("服务器错误");
+					   		return false;
+					   	}
+				    }
+				})
+             }
+            
+        })
+	})
+</script>
