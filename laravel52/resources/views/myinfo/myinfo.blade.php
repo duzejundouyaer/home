@@ -11,7 +11,7 @@
 	
  <div id="my_info">
     <div class="bar bar-header bar-positive  " >
-	<a class="button button-clear icon ion-ios-arrow-left" href="{{URL('center')}}"></a>
+	<a class="button button-clear icon ion-ios-arrow-left" onclick="history.go(-1);"></a>
      <h1 class="title">我的资料</h1>
 	
       <a class="button button-clear icon "  id="submit">保存</a>

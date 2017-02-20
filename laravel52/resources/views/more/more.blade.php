@@ -14,7 +14,7 @@
     	
  <div id="my_info">
     <div class="bar bar-header bar-positive  " >
-	<a class="button button-clear icon ion-ios-arrow-left" href="{{URL('index')}}"></a>
+	<a class="button button-clear icon ion-ios-arrow-left" onclick="history.go(-1);"></a>
      <h1 class="title">正在直播</h1>
 	 
    </div>

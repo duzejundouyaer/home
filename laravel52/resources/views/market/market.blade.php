@@ -18,7 +18,7 @@
 <!--顶部-->
     {{--<div class="bar bar-header bar-positive  ">--}}
 		    {{--<h1 class="title">全部课程</h1>--}}
-		    {{--<a class="button button-clear icon ion-android-cart" href="{{URL('shopcart')}}"></a>--}}
+		    {{--<a class="button button-clear icon ion-android-cart" onclick="history.go(-1);"></a>--}}
 	{{--</div>--}}
 
 <div class="top_tit">
