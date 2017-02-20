@@ -19,7 +19,11 @@ Route::get('index','WelcomeController@index');//直播回首页
 Route::get('center','CenterController@center');//个人中心
 Route::get('myinfo','CenterController@myinfo');//个人资料
 Route::post('insert_info','CenterController@updateInfo');//修改个人资料
-Route::get('mycart','CenterController@cart_info');//修改个人资料
+Route::get('mycart','CenterController@cart_info');//我的购物车
+Route::get('del_cart','CenterController@delCart');//删除购物车信息
+Route::get('myorder','CenterController@order_list');//个人订单列表
+Route::get('feedback','CenterController@user_Feed');//反馈界面
+Route::post('sub_feed','CenterController@subFeed');//反馈提交
 
 Route::get('market','MarketController@market');//全部课程分类
 Route::get('curr','MarketController@curr');//全部课程分类
