@@ -25,10 +25,10 @@
             </div>
 				<div class="list list-inset">
 					<label class="item item-input">
-					   昵称	<input type="text" id="nickname" value=""  style="text-align:right;">
+					   昵称	<input type="text" id="nickname" value="{{$info['nickname']}}"  style="text-align:right;">
 					  </label>
 					  <label class="item ">
-					   个人介绍	<textarea name="" calss="myInfo" placeholder="编辑个人介绍(不超过80个字)" id="desc" cols="50" rows="3" style=""></textarea>
+					   个人介绍	<textarea name="" calss="myInfo" placeholder="编辑个人介绍(不超过80个字)" id="desc" cols="50" rows="3" style="" value="">{{$info['user_desc']}}</textarea>
 					  </label>
 					  <span style="margin-left:150px; color:red;" id="info"></span>
 				</div>
