@@ -94,8 +94,8 @@ public function morer(){
     public function get_city()
     {
         //echo 1;die;
-         //$ip = $_SERVER['REMOTE_ADDR'];
-        $ip ='8.8.8.8';
+         $ip = $_SERVER['REMOTE_ADDR'];
+        //$ip ='8.8.8.8';
         $data = file_get_contents("http://api.k780.com:88/?app=ip.get&ip=".$ip."&appkey=20892&sign=28feb41149334bcdb2d02918f618d98d&format=json");
         return $data;
     }
