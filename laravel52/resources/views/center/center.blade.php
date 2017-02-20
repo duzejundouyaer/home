@@ -1,3 +1,7 @@
+<?php
+use Symfony\Component\HttpFoundation\Session\Session;
+$session = new Session();
+?>
 <html ng-app="ionicApp">
 <style>
   /*.login{text-align: center;margin-top: 200px;}*/
@@ -42,7 +46,7 @@
               <div style="margin:10px auto;width:100px;height:100px;border-radius:50px;overflow:hidden;">
                     <img src="{{asset('style/img/3.jpg')}}" style="margin:0;width:100%;height:100%;">
               </div>
-<<<<<<< HEAD
+
                    <p style="text-align:center">昵称：张三</p>
               <div>
 
@@ -54,46 +58,17 @@
                       <a class="button button-clear icon " href="{{URL('mycart')}}" style="margin-right:130px;color:#000;">我的购物车</a>
                     </li>
                      <li  class="item  item-button-right icon ion-ios-folder-outline">
-                     <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">我的订单</a>
+                     <a class="button button-clear icon " href="{{URL('myorder')}}" style="margin-right:130px;color:#000;">已购买课程</a>
                     </li>
                     <li class="item item-button-right icon ion-ios-star-outline">
-                      <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">我的收藏</a>
+                      <a class="button button-clear icon " href="{{URL('feedback')}}" style="margin-right:150px;color:#000;">我的收藏</a>
                     </li>
                      
                     <li class="item  item-button-right icon ion-ios-person-outline">
-                  <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">意见反馈</a>
-=======
-                   <p style="text-align:center">张三</p>
+                  <a class="button button-clear icon " href="{{URL('feedback')}}" style="margin-right:150px;color:#000;">意见反馈</a>
+
+                
         
-             <div>
-                     <hr style="height:2px;background-color:#E6E6FA;border:0px" >
-                       <table width="95%" border="1" cellpadding="1" cellspacing="1">
-                          <tr>
-                               <td >
-                                    <p style="text-align:center">0</P>
-                                    <p style="text-align:center">帖子</p>
-                               </td>
-                               
-                               <td >
-                                    <p style="text-align:center">10</P>
-                                    <p style="text-align:center">关注</p>
-                               </td>
-                               
-                               <td >
-                                    <p style="text-align:center">12</P>
-                                    <p style="text-align:center">粉丝</p>
-                               </td>
-                        </tr>
-                       </table>
-                                   </div>
-              <div>
-                 <ul class="list" >
-                    <li class="item item-button-right icon ion-ios-folder-outline">
-                      我的订单
-                       <a href="{{URL('myinfo')}}" class="button button-clear icon ion-ios-arrow-right"></a>
->>>>>>> 1c58f7dc90614de8ff03e5b25c2083fae3580404
-                    </li>
-                </ul>
               </div>
              
     </div>
@@ -108,17 +83,17 @@
                         <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">个人信息</a>
                     </li>
                     <li  class="item  item-button-right icon ion-ios-folder-outline">
-                      <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:130px;color:#000;">我的购物车</a>
+                      <a class="button button-clear icon " href="{{URL('mycart')}}" style="margin-right:130px;color:#000;">我的购物车</a>
                     </li>
                      <li  class="item  item-button-right icon ion-ios-folder-outline">
-                     <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">我的订单</a>
+                     <a class="button button-clear icon " href="{{URL('myorder')}}" style="margin-right:130px;color:#000;">已购买课程</a>
                     </li>
                     <li class="item item-button-right icon ion-ios-star-outline">
                       <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">我的收藏</a>
                     </li>
                      
                     <li class="item  item-button-right icon ion-ios-person-outline">
-                  <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">意见反馈</a>
+                  <a class="button button-clear icon " href="{{URL('feedback')}}" style="margin-right:150px;color:#000;">意见反馈</a>
                     </li>
                 </ul>
               </div>
@@ -137,7 +112,7 @@
 <script type="text/javascript" src="{{asset('style/js/jquery.js')}}"></script>
 <script>
   $(function(){
-     var user_session = "{{session()->get('key')}}";
+     var user_session = "{{$session->get('username')}}";
     if(user_session == '')
     {
        $("#user_login").show();
