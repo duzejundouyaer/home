@@ -137,7 +137,7 @@ class CenterController extends Controller{
    public function user_Feed()
    {
       $session = new Session;
-      $nickname = $session->get('username');
+      $nickname = $session->get('nickname');
       if(!isset($nickname))
       {
          return redirect('login');
@@ -153,7 +153,7 @@ class CenterController extends Controller{
    {
        
         $session = new Session;
-        $nickname = $session->get('username');
+        $nickname = $session->get('nickname');
         $request = $request->all();
         $email = $request['email'];
         $feedBack = $request['feedBack'];
