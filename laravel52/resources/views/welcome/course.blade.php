@@ -108,7 +108,7 @@
 
 <!--顶部-->
 <div class="bar bar-header bar-positive  " >
-    <a class="button button-clear icon ion-ios-arrow-left" href="{{URL('index')}}"></a>
+    <a class="button button-clear icon ion-ios-arrow-left" onclick="history.go(-1);"></a>
      <h1 class="title">精选课程</h1>
      
    </div>

@@ -6,7 +6,7 @@
     <a class="tab-item"  href="{{URL('market')}}">
         <i class="icon ion-ios-paper-outline"></i>全部课程
     </a>
-    <a class="tab-item has-badge active"  href="{{URL('more')}}">
+    <a class="tab-item has-badge active"  href="{{URL('thisee')}}">
         <i class="icon ion-ios-eye-outline"></i>直播
 
     </a>

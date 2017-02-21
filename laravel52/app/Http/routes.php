@@ -16,7 +16,7 @@ Route::get('/','WelcomeController@welcome');//首页
 Route::get('search','WelcomeController@search');//搜索
 Route::get('city_info','WelcomeController@get_city');//城市
 Route::get('course','WelcomeController@course');//精选课程    
-Route::get('index','WelcomeController@index');//直播回首页
+
 Route::get('morer','WelcomeController@morer');//首页更多
 Route::get('carousel','WelcomeController@carousel');//首页轮播图
 
@@ -40,6 +40,8 @@ Route::get('bfang','MarketController@bfang');//课程详情
 Route::post('shopcart','MarketController@shopcart');//加入购物车
 
 Route::get('more','MoreController@more');//更多
+
+Route::get('thisee','ThiseeController@thisee');//直播页
 
 
 

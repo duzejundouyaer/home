@@ -207,7 +207,7 @@
 
       <div>
          <p style="background-color:#99BBFF  ">热门推荐</p>
-        <?php foreach ($he as $key => $value) {?>
+        <?php foreach ($str as $key => $value) {?>
           
         
               <div class="NewsList">
