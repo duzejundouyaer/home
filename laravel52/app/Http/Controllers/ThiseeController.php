@@ -10,15 +10,23 @@ class ThiseeController extends Controller
 {
 
     public function thisee(){
-        $time=time();
-        $cur=new Cur();
-        $data=$cur->moBod();
+        //现在时间
+        $time=time()+8*60*60;
+
+        $data=DB::table('study_seeding')->join('study_teacher', 'study_teacher.teacher_id','=','study_seeding.teacher_id')->where('study_seeding.begintime','>',$time)->get();//正在播
+//        print_r($data);die;
+//        $cur=new Cur();
+//        $data=$cur->moBod();
         //print_r($data);die;
         return view('thisee.thisee',['data'=>$data]);
     }
     public function mogbo(){
-        $cur=new Cur();
-        $data=$cur->moBod();
+        //echo date("Y-m-d H:i:s",'1487766823');die;
+        $time=time()+8*60*60;
+        $data=DB::table('study_seeding')->join('study_teacher', 'study_teacher.teacher_id','=','study_seeding.teacher_id')->where('study_seeding.begintime','<',$time)->get();//没开波
+//        print_r($data);die;
+//        $cur=new Cur();
+//        $data=$cur->moBod();
         return view('thisee.modo',['data'=>$data]);
     }
 

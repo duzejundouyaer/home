@@ -122,9 +122,9 @@ class CenterController extends Controller{
       $session = new Session;
       $nickname = $session->get('username');
      if(!isset($nickname))
-       {
+        {
           return redirect('login');
-       }else
+        }else
        {
         $order = new Order();
         $orders = $order->orderList($nickname);
