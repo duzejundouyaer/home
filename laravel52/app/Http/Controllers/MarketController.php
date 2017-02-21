@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use App\User;
 use App\Cur;
+use App\Cart;
+use Symfony\Component\HttpFoundation\Session\Session;
 class MarketController extends Controller{
 
 /**
@@ -60,7 +62,11 @@ class MarketController extends Controller{
     ///加入购物车
      public function shopcart(){
          $id=Input::get("id");
-
+         $cart = new Cart();
+         $session = new Session;
+         $nickname = $session->get('nickname');
+         echo $nickname;die;
+         $reg = $cart->insert_cart($nickname,$id);
          $info=[
            'status'=>0,
            'msg'=>"加入成功",
