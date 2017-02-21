@@ -150,7 +150,7 @@
   </div>
     <div style="height:50px;width:100%;clear:all "><p style="float:right;margin-top:30px;margin-right:20px;font-size:16px;">共<span style="color:red;">{{$price}}</span>元</p></div>
     <div>
-              <a class="button button-block button-positive" href="" style="background:red;">点击付款 </a>
+              <a class="button button-block button-positive" href="{{URL('pay')}}" style="background:red;">点击付款 </a>
         </div> 
      </ion-scroll>
     </ion-view>
@@ -174,6 +174,7 @@
                    if(msg==1)
                    {
                       _this.parents('ul').remove();
+                       window.location.reload();
                    }
                }
             });
