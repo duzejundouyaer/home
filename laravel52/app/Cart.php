@@ -29,4 +29,11 @@ class Cart extends Model
         $res = $this->where('cart_id',$cart_id)->delete();
         return $res;
 	}
+	/**
+	 * 加入购物车
+	 */
+	public function insert_cart()
+	{
+		
+	}
 }
