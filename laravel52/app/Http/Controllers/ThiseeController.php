@@ -19,7 +19,7 @@ class ThiseeController extends Controller
     public function mogbo(){
         $cur=new Cur();
         $data=$cur->moBod();
-        return view('thisee.modo',['data'=>$data]);
+        return view('thisee.mogbo',['data'=>$data]);
     }
 
 }
