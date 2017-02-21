@@ -138,8 +138,16 @@
                                 <div class="rt2">
                                     <p class="orange">
                                         <i class="f15 mr5">&yen;</i>
-                                        <i class="f20">
-                                            <?=$val['cur_price']?>
+                                       <i class="f20">
+                                         <?php  
+                                        if($val['cur_price']==0)
+                                        {
+                                            echo "<span style='color:green;'>免费</span>";   
+                                        }else
+                                        {
+                                            echo $val['cur_price'];
+                                        }
+                                         ?>
                                         </i>
                                         <br/>
                                         <a style="font-size: 25px;" alt="收藏">❤</a>
