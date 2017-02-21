@@ -119,12 +119,13 @@ class CenterController extends Controller{
     */
    public function order_list()
    {
+   
     $session = new Session;
       $nickname = $session->get('nickname');
-      if(empty($nickname))
-       {
-         return redirect('login');
-       }else
+      if(empty($nickname)) {
+          return redirect('login');
+      } else
+   
        {
         $order = new Order();
         $orders = $order->orderList($nickname);
@@ -153,6 +154,7 @@ class CenterController extends Controller{
    {
        
         $session = new Session;
+      
         $nickname = $session->get('nickname');
         $request = $request->all();
         $email = $request['email'];
