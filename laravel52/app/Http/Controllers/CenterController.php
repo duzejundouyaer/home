@@ -25,13 +25,10 @@ class CenterController extends Controller{
         $arr = DB::table('study_user')->where('nickname',$nickname)->first();
         return view('center.center',['arr'=>$arr]);
     }
-  
-
-
- /**
-  *
-  * 资料
-  */
+    /**
+    *
+    * 资料
+     */
     public function myinfo(Request $request)
     {
         $session = new Session;
