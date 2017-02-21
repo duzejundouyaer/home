@@ -119,16 +119,19 @@ class CenterController extends Controller{
     */
    public function order_list()
    {
-      $session = new Session;
-      $nickname = $session->get('username');
-     if(!isset($nickname))
+   
+    $session = new Session;
+      $nickname = $session->get('nickname');
+      if(empty($nickname))
+       
         {
-          return redirect('login');
-        }else
+          
+         return redirect('login');
+   
        {
         $order = new Order();
         $orders = $order->orderList($nickname);
-        return view('center.orderList',['orders'=>$orders]);
+      return view('center/orderList',['orders'=>$orders]);
        }
    }
    /**
@@ -137,7 +140,7 @@ class CenterController extends Controller{
    public function user_Feed()
    {
       $session = new Session;
-      $nickname = $session->get('username');
+      $nickname = $session->get('nickname');
       if(!isset($nickname))
       {
          return redirect('login');
@@ -153,7 +156,8 @@ class CenterController extends Controller{
    {
        
         $session = new Session;
-        $nickname = $session->get('username');
+      
+        $nickname = $session->get('nickname');
         $request = $request->all();
         $email = $request['email'];
         $feedBack = $request['feedBack'];
