@@ -14,6 +14,7 @@
 
 Route::get('/','WelcomeController@welcome');//首页
 Route::get('search','WelcomeController@search');//搜索
+
 Route::get('city_info','WelcomeController@get_city');//城市
 Route::get('course','WelcomeController@course');//精选课程    
 
@@ -22,6 +23,7 @@ Route::get('carousel','WelcomeController@carousel');//首页轮播图
 
 Route::get('selected','WelcomeController@selected');//精选系列课程
 Route::get('recommend','WelcomeController@recommend');//热门推荐
+
 
 Route::get('center','CenterController@center');//个人中心
 Route::get('myinfo','CenterController@myinfo');//个人资料
