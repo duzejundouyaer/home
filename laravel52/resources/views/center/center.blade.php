@@ -112,7 +112,7 @@ $session = new Session();
 <script type="text/javascript" src="{{asset('style/js/jquery.js')}}"></script>
 <script>
   $(function(){
-     var user_session = "{{$session->get('username')}}";
+     var user_session = "{{$session->get('nickname')}}";
     if(user_session == '')
     {
        $("#user_login").show();
