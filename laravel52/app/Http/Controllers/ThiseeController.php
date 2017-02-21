@@ -30,6 +30,8 @@ class ThiseeController extends Controller
         return view('thisee.mogbo',['data'=>$data]);
     }
 
+
+
 }
 
 
