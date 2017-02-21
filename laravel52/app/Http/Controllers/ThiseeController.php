@@ -10,7 +10,14 @@ class ThiseeController extends Controller
 {
 
     public function thisee(){
-        $data=DB::table('study_seeding')->join('study_seeding', 'study_seeding.teacher_id', '=', 'study_seeding.teacher_id')->get();
+        $time=time();
+        $data=DB::table('study_seeding')->join('study_teacher', 'study_seeding.teacher_id', '=', 'study_seeding.teacher_id')->where('begintime','<',$time)->where('endtime','>',$time)->get();
+//        foreach($data as $key=>$val){
+//            $data[$key]['begintime']=strtotime($val['begintime']);
+//            $data[$key]['endtime']=strtotime($val['endtime']);
+//        }
+        print_r($data);die;
+        //DB::table('study_seeding')->join('study_teacher', 'study_seeding.teacher_id', '=', 'study_seeding.teacher_id')->where()->get();
         return view('thisee.thisee',['data'=>$data]);
     }
 
