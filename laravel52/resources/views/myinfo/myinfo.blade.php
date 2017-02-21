@@ -23,14 +23,17 @@
 		 <div style="margin:10px auto;width:100px;height:100px;border-radius:50px;overflow:hidden;" id="imgg">
                       <img src="<?php echo $info['img']?>" style="margin:0;width:100%;height:100%;">
             </div>
-             <div id="file" style="margin:10px auto;width:100px;">
-
+             <div id="files" style="margin:10px auto;width:100px;display: none">
+                 <input type="file" accept="audio/*;capture=microphone" name="file" onchange="readFile(this)">
              </div>
-             <div style="margin-left: 300px;margin-bottom: 50px;"><a href="#" style="text-decoration: none;" id="imgs">更换头像</a></div>
+             <div style="margin-left: 300px;margin-bottom: 50px;">
+                 <a href="#" style="text-decoration: none;" id="imgs">更换头像</a>
+             </div>
 				<div class="list list-inset">
 					<label class="item item-input">
 					   昵称	<input type="text" id="nickname" value="{{$info['nickname']}}"  style="text-align:right;">
 					  </label>
+                    <input type="hidden" value="" id="lala">
 					  <label class="item ">
 					   个人介绍	<textarea name="" calss="myInfo" placeholder="编辑个人介绍(不超过80个字)" id="desc" cols="50" rows="3" style="" value="">{{$info['user_desc']}}</textarea>
 					  </label>
@@ -48,13 +51,30 @@
 </html>
 <script type="text/javascript" src="{{asset('style/js/jquery.js')}}"></script>
 <script type="text/javascript">
+    function readFile(obj){
+        var file = obj.files[0];
+        //判断类型是不是图片
+        if(!/image\/\w+/.test(file.type)){
+            alert("请确保文件为图像类型");
+            return false;
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e){
+            img=this.result; //就是base64
+            $('#lala').val(img);
+        }
+
+    }
     $(document).on('click','#imgs',function () {
            $("#imgg").css('display','none');
-           $(this).css('display','none')
-        $("#file").html('<input type="file" accept="audio/*;capture=microphone">');
+           $(this).css('display','none');
+           $("#files").css('display','block');
+
     })
 	$(function(){
         $("#submit").click(function(){
+             var file = $("#lala").val();
              var nickname = $("#nickname").val();
              var desc = $("#desc").val();
              var _token = "{{ csrf_token() }}";
@@ -69,13 +89,15 @@
              	return false;
              }else{
 				 $.ajax({
-				   type: "POST",
+				   type: "post",
 				   url: "{{URL('insert_info')}}",
-				   data: {nickname:nickname,desc:desc,_token:_token},
+				   data: {nickname:nickname,desc:desc,_token:_token,file:file},
 				   success: function(msg){
 					   	if(msg==0){
-					   		$("#info").css("color","green");
-					    	$("#info").html("修改成功");
+                            window.location.reload();
+//					   		$("#info").css("color","green");
+//					    	$("#info").html("修改成功");
+//
 					   	}else if(msg=='500')
 					   	{
 					   		$("#info").css("color","black");

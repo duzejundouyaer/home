@@ -30,10 +30,10 @@ class User extends Authenticatable
     /**
      * 修改个人资料
      */
-    public function Update_info($nickname,$nickName,$desc)
+    public function Update_info($nickname,$nickName,$desc,$filename)
     {
         $arr = $this->where('nickname','=',$nickname)->first();
-        $res = $this->where('user_id','=',$arr['user_id'])->update(['nickname'=>$nickName,'user_desc'=>$desc]);
+        $res = $this->where('user_id','=',$arr['user_id'])->update(['nickname'=>$nickName,'user_desc'=>$desc,'img'=>$filename]);
         return 1;
     }
     /**

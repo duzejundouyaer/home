@@ -25,7 +25,7 @@ Route::get('recommend','WelcomeController@recommend');//热门推荐
 
 Route::get('center','CenterController@center');//个人中心
 Route::get('myinfo','CenterController@myinfo');//个人资料
-Route::post('insert_info','CenterController@updateInfo');//修改个人资料
+Route::any('insert_info','CenterController@updateInfo');//修改个人资料
 Route::get('mycart','CenterController@cart_info');//我的购物车
 Route::get('del_cart','CenterController@delCart');//删除购物车信息
 Route::get('myorder','CenterController@order_list');//个人订单列表
@@ -42,6 +42,7 @@ Route::post('shopcart','MarketController@shopcart');//加入购物车
 Route::get('more','MoreController@more');//更多
 
 Route::get('thisee','ThiseeController@thisee');//直播页
+Route::get('mogbo','ThiseeController@mogbo');//直播页
 
 
 
