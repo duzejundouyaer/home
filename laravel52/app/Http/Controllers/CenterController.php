@@ -116,16 +116,16 @@ class CenterController extends Controller{
     */
    public function order_list()
    {
-      $session = new Session;
-      $nickname = $session->get('username');
-     if(!isset($nickname))
+    $session = new Session;
+      $nickname = $session->get('nickname');
+      if(empty($nickname))
        {
-          return redirect('login');
+         return redirect('login');
        }else
        {
         $order = new Order();
         $orders = $order->orderList($nickname);
-        return view('center.orderList',['orders'=>$orders]);
+        return view('center/orderList',['orders'=>$orders]);
        }
    }
    /**
