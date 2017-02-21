@@ -135,7 +135,7 @@
                                </div>
                             </a>
                             <div class="rt2">
-                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"></i></p>
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20">{{$val['price']}}</i></p>
                                 <p style="margin-top:10px;" id=""><a href="javascript:void(0)" id="del">播放</a></p>
                            </div>
                         </div>
