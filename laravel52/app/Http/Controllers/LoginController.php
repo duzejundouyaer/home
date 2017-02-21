@@ -233,6 +233,8 @@ class LoginController extends Controller{
         );
         $re = DB::table('study_user')->insert($user);
         if($re){
+            $session = new Session();
+            $session->set('nickname',$name);
             return redirect('/');
         }else{
             return redirect('regist');
@@ -291,7 +293,9 @@ class LoginController extends Controller{
    */
      public function login_out(){
 
-       return view('login.login');
+         $session = new Session();
+         $session->set('nickname','');
+         return view('login.login');
     }
 
   }

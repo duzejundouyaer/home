@@ -34,9 +34,9 @@ class CenterController extends Controller{
   */
     public function myinfo(Request $request)
     {
-       $session = new Session;
-        $nickname =  $session->get('username');
-          if(!isset($nickname))
+        $session = new Session;
+        $nickname =  $session->get('nickname');
+          if(empty($nickname))
           {
              return redirect('login');
              die;
@@ -79,12 +79,12 @@ class CenterController extends Controller{
    public function cart_info(Request $request)
    {
       $session = new Session;
-      $nickname = $session->get('username');
-      if(!isset($nickname))
-      {
+      $nickname = $session->get('nickname');
+      if(empty($nickname))
+       {
          return redirect('login');
-      }else
-      {
+       }else
+       {
          $Cart = new Cart();
          $arr = $Cart->user_cart($nickname);
          $price=0;

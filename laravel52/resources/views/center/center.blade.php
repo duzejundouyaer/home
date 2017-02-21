@@ -36,7 +36,7 @@ $session = new Session();
 <!--顶部-->
  <div class="bar bar-header bar-positive item-input-inset " >
      <h1 class="title">我的信息</h1>
-      <a class="button button-clear icon ion-person-stalker" href="{{URL('myinfo')}}"></a>
+      <a class="button button-clear icon ion-person-stalker"onclick="history.go(-1);"></a>
     </div>
 <!--内容-->   
    <ion-view title="Home" hide-nav-bar="true">
@@ -112,7 +112,7 @@ $session = new Session();
 <script type="text/javascript" src="{{asset('style/js/jquery.js')}}"></script>
 <script>
   $(function(){
-     var user_session = "{{$session->get('username')}}";
+     var user_session = "{{$session->get('nickname')}}";
     if(user_session == '')
     {
        $("#user_login").show();

@@ -13,16 +13,7 @@ class WelcomeController extends Controller{
  * @return [type] [description]
  */
     public function welcome(){
-        return view('welcome.welcome');
-    }
-
-/**
- * 
- * 直播跳转首页
- * @return [type] [description]
- */
-    public function index(){
-        //轮播
+         //轮播
          $rel=DB::table('study_adv')->get();
         
          //精选
@@ -30,16 +21,17 @@ class WelcomeController extends Controller{
              ->distinct()->take(3)->orderBy('cur_is_new', 'asc')->get();
         //print_r($res);die;
          //热门
-         $he=DB::table('study_cur')->orwhere('cur_price',0)->where('cur_is_heat','=',1)
-            ->orderBy('cur_is_heat', 'asc')->distinct()->take(3)->get();
+         $str=DB::table('study_cur')->orwhere('cur_price',0)->where('cur_is_heat','=',1)
+            ->orderBy('cur_is_heat', 'desc')->distinct()->take(3)->get();
         //print_r($he);die;
         //系列        
          $re=DB::table('study_cur')->where('cur_price','>=',100)->orderBy('cur_is_new', 'desc')
                ->distinct()->take(3)->get();
          //print_r($heat);die;
-          return view('welcome.welcome',['rel'=>$rel,'res'=>$res,'he'=>$he,'re'=>$re]);
-    	
+          return view('welcome.welcome',['rel'=>$rel,'res'=>$res,'str'=>$str,'re'=>$re]);
+    
     }
+
 
 
    
@@ -49,7 +41,7 @@ class WelcomeController extends Controller{
  */
  public function course(){
 
-    $res=DB::table('study_cur')->where('cur_is_heat',1)->where('cur_is_new','=',1)->get();
+    $res=DB::table('study_cur')->where('cur_is_heat',1)->where('cur_is_new','=',1)->orderBy('cur_is_new', 'desc')->take(5)->get();
 
    //print_r($res);die;
     return view('welcome.course',['res'=>$res]);
@@ -63,7 +55,7 @@ class WelcomeController extends Controller{
     
  public function selected(){
 
-    $re=DB::table('study_cur')->where('cur_price','>=',100)->get();
+    $re=DB::table('study_cur')->where('cur_price','>=',100)->orderBy('cur_price', 'desc')->take(5)->get();
   // print_r($re);die; 
  	return view('welcome.selected',['re'=>$re]);
  }
@@ -73,7 +65,7 @@ class WelcomeController extends Controller{
     * 热门推荐
     */
 public function recommend(){
-     $heat=DB::table('study_cur')->where('cur_is_heat','=',1)->orderBy('cur_is_heat', 'desc')->get();
+     $heat=DB::table('study_cur')->where('cur_is_heat','=',1)->orderBy('cur_is_heat', 'desc')->take(5)->get();
 	 return view('welcome.recommend',['heat'=>$heat]);
 }
 
@@ -84,7 +76,7 @@ public function recommend(){
  * 更多
  */
 public function morer(){
-    $more=DB::table('study_cur')->orderBy('cur_price', 'asc')->get();
+    $more=DB::table('study_cur')->orderBy('cur_price', 'desc')->take(5)->get();
 	return view('welcome.morer',['more'=>$more]);	
 }
 /**

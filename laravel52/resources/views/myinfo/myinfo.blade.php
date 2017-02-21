@@ -11,7 +11,7 @@
 	
  <div id="my_info">
     <div class="bar bar-header bar-positive  " >
-	<a class="button button-clear icon ion-ios-arrow-left" href="{{URL('center')}}"></a>
+	<a class="button button-clear icon ion-ios-arrow-left" onclick="history.go(-1);"></a>
      <h1 class="title">我的资料</h1>
 	
       <a class="button button-clear icon "  id="submit">保存</a>
@@ -20,9 +20,13 @@
    <div class="scroll-content">
      
 		 <div class="scroll-content has-header padding">
-		 <div style="margin:10px auto;width:100px;height:100px;border-radius:50px;overflow:hidden;">
-                      <img src="{{asset('style/img/3.jpg')}}" style="margin:0;width:100%;height:100%;">
+		 <div style="margin:10px auto;width:100px;height:100px;border-radius:50px;overflow:hidden;" id="imgg">
+                      <img src="<?php echo $info['img']?>" style="margin:0;width:100%;height:100%;">
             </div>
+             <div id="file" style="margin:10px auto;width:100px;">
+
+             </div>
+             <div style="margin-left: 300px;margin-bottom: 50px;"><a href="#" style="text-decoration: none;" id="imgs">更换头像</a></div>
 				<div class="list list-inset">
 					<label class="item item-input">
 					   昵称	<input type="text" id="nickname" value="{{$info['nickname']}}"  style="text-align:right;">
@@ -44,13 +48,18 @@
 </html>
 <script type="text/javascript" src="{{asset('style/js/jquery.js')}}"></script>
 <script type="text/javascript">
+    $(document).on('click','#imgs',function () {
+           $("#imgg").css('display','none');
+           $(this).css('display','none')
+        $("#file").html('<input type="file" accept="audio/*;capture=microphone">');
+    })
 	$(function(){
         $("#submit").click(function(){
              var nickname = $("#nickname").val();
              var desc = $("#desc").val();
              var _token = "{{ csrf_token() }}";
-             if(nickname.length>5){
-                $("#info").html("昵称不能超过5个字");
+             if(nickname.length<5){
+                $("#info").html("昵称最少5个字");
                 return false;
              }else if(nickname == ''){
              	$("#info").html("请输入昵称");
