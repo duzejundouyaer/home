@@ -114,6 +114,17 @@ public function morer(){
             
         }
 
+//         /**
+//          *
+//          * 搜索详情
+//          */
+
+// public function details(){
+
+//     $id=$_GET['id'];
+//    // echo $id;die;
+   
+// }
 
 
 
