@@ -118,9 +118,15 @@ class CenterController extends Controller{
    {
       $session = new Session;
       $nickname = $session->get('username');
-      $order = new Order();
-      $orders = $order->orderList($nickname);
-      return view('center.orderList',['orders'=>$orders]);
+     if(!isset($nickname))
+       {
+          return redirect('login');
+       }else
+       {
+        $order = new Order();
+        $orders = $order->orderList($nickname);
+        return view('center.orderList',['orders'=>$orders]);
+       }
    }
    /**
     * 用户意见反馈界面
