@@ -122,16 +122,14 @@ class CenterController extends Controller{
    
     $session = new Session;
       $nickname = $session->get('nickname');
-      if(empty($nickname))
-       
-        {
-          
-         return redirect('login');
+      if(empty($nickname)) {
+          return redirect('login');
+      } else
    
        {
         $order = new Order();
         $orders = $order->orderList($nickname);
-      return view('center/orderList',['orders'=>$orders]);
+        return view('center/orderList',['orders'=>$orders]);
        }
    }
    /**
