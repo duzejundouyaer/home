@@ -120,7 +120,7 @@ class LoginController extends Controller{
             return redirect('/');
         }else{
             //没有的话相当于注册  一个
-            $addtime = date("y-m-d h:i:s");
+            $addtime = date("Y-m-d H:i:s");
             $user=array(
                 'open_id'=>$userinfo['id'],
                 'login_method'=>2,
@@ -161,7 +161,7 @@ class LoginController extends Controller{
             return redirect('/');
         }else{
             //没有的话相当于注册  一个
-            $addtime = date("y-m-d h:i:s");
+            $addtime = date("Y-m-d H:i:s");
             $user=array(
                 'open_id'=>$open_id['openid'],
                 'login_method'=>1,
@@ -221,7 +221,7 @@ class LoginController extends Controller{
         $request = Input::get();
         $pwd = Crypt::encrypt($request['pwd']);
         $tel = $request['tel'];
-        $addtime = date("Y-m-d h:i:s");
+        $addtime = date("Y-m-d H:i:s");
         $name = 'duoxue'.time();
         $user=array(
             'user_tel'=>"$tel",

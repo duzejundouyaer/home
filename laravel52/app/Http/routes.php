@@ -44,8 +44,9 @@ Route::get('select_cart','MarketController@getCart');//查看用户是否已经�
 
 Route::get('more','MoreController@more');//更多
 
-Route::get('thisee','ThiseeController@thisee');//直播页
-Route::get('mogbo','ThiseeController@mogbo');//直播页
+Route::get('thisee','ThiseeController@thisee');//直播列表
+Route::get('mogbo','ThiseeController@mogbo');//wei直播页
+Route::get('begbo','ThiseeController@begbo');//直播
 
 
 
