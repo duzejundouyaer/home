@@ -127,10 +127,10 @@
         <?php if($curone['cur_price']!=0){?>
         <div class="bk_fix_bottom">
             <div class="bk_half_area">
-                <button class="weui_btn weui_btn_primary" style="font-size: 15px" onclick="_toCharge(<?=$kejie['cur_id']?>);">加入购物车</button>
+                <button class="weui_btn weui_btn_primary" style="font-size: 15px" id="addCart" onclick="_toCharge(<?=$kejie['cur_id']?>);">加入购物车</button>
             </div>
             <div class="bk_half_area">
-                <button class="weui_btn weui_btn_default" style="font-size: 15px" onclick="_onDelete();">查看</button>
+                <button class="weui_btn weui_btn_default" style="font-size: 15px" id="look" >查看</button>
             </div>
         </div>
         <?php }else{ ?>
@@ -149,6 +149,26 @@
 <script src="{{asset('js/book.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{asset('style/layer/layer.js')}}"></script>
 <script>
+$(function(){
+    var id = "<?=$kejie['cur_id']?>";
+    $.ajax({
+   type: "GET",
+   url: "{{URL('select_cart')}}",
+   data: {id:id},
+   success: function(msg){
+       if(msg == 1)
+       {
+            $("#addCart").html('您已加入购物车');
+            $("#addCart").css('background','#d0d0d0');
+            $("#addCart").css('color','#000');
+            $("#addCart").attr("disabled", true);
+       }
+   }
+});
+    $("#look").click(function(){
+        location.href="{{URL('mycart')}}";
+    })
+})
     function togobegen(){
         var bfang=$('.bfang').attr('ids');
         var cur_id="<?=$curone['cur_id']?>";
@@ -162,9 +182,10 @@
             layer.msg(11111, {icon: 6});
             if(data.status == 0){
 //                location.href = location.href;
-                layer.msg(data.msg, {icon: 6});
-            }else{
-                layer.msg(data.msg, {icon: 5});
+                 $("#addCart").html('已加入购物车');
+                 $("#addCart").css('background','red');
+                 $("#addCart").css('color','#000');
+                 $("#addCart").attr("disabled", true);
             }
         });
     }
