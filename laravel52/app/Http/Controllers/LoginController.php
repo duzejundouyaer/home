@@ -295,7 +295,7 @@ class LoginController extends Controller{
 
          $session = new Session();
          $session->set('nickname','');
-         return view('login.login');
+         return redirect('login');
     }
 
   }
