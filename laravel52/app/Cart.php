@@ -32,8 +32,21 @@ class Cart extends Model
 	/**
 	 * 加入购物车
 	 */
-	public function insert_cart()
+	public function insert_cart($nickname,$id,$time)
 	{
-		
+		$userInfo = DB::table('study_user')->where('nickname', '=',$nickname)->first();
+		$cur = DB::table('study_cur')->where('cur_id', '=',$id)->first();
+		$reg = $this->insert(['course_name'=>$cur['cur_name'],'cur_price'=>$cur['cur_price'],'curl_img'=>$cur['cur_img'],'add_time'=>$time,'type_id'=>$cur['typeid'],'user_id'=>$userInfo['user_id']]);
+		return $reg;
+	}
+	/**
+	 * 查询用户是否将视频加入到购物车
+	 */
+	public function get_cart($id,$nickname)
+	{
+		$userInfo = DB::table('study_user')->where('nickname', '=',$nickname)->first();
+		$cur =  DB::table('study_cur')->where('cur_id', '=',$id)->first();
+		$res = $this->where('user_id',$userInfo['user_id'])->Where('course_name','=',$cur['cur_name'])->first();
+        return $res;
 	}
 }
