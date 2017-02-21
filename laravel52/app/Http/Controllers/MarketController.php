@@ -65,17 +65,38 @@ class MarketController extends Controller{
          $cart = new Cart();
          $session = new Session;
          $nickname = $session->get('nickname');
-         echo $nickname;die;
-         $reg = $cart->insert_cart($nickname,$id);
-         $info=[
-           'status'=>0,
-           'msg'=>"加入成功",
-         ];
-         return $info;
-//         return json_encode($info);
-//         return view('shopcart.shopcart');
+         $time = date("Y-m-d H:i:s",time()+8*60*60);
+         $reg = $cart->insert_cart($nickname,$id,$time);
+         if($reg)
+         {
+             $info=[
+               'status'=>0,
+               'msg'=>"加入成功",
+             ];
+             return $info;
+         }else
+         {
+            echo 0;
+         }
      }
-
+    /**
+     * 查询用户是否已经将视频添加到购物车
+     */
+     public function getCart()
+     {
+         $id = Input::get("id");
+         $cart = new Cart();
+         $session = new Session;
+         $nickname = $session->get('nickname');
+         $reg = $cart->get_cart($id,$nickname);
+         if($reg)
+         {
+            return 1;
+         }else
+         {
+            return 0;
+         }
+     }
    }
 
     ?>
