@@ -10,10 +10,17 @@ class ThiseeController extends Controller
 {
 
     public function thisee(){
-        $data=DB::table('study_seeding')->join('study_seeding', 'study_seeding.teacher_id', '=', 'study_seeding.teacher_id')->get();
+        $time=time();
+        $cur=new Cur();
+        $data=$cur->moBod();
+        //print_r($data);die;
         return view('thisee.thisee',['data'=>$data]);
     }
-
+    public function mogbo(){
+        $cur=new Cur();
+        $data=$cur->moBod();
+        return view('thisee.modo',['data'=>$data]);
+    }
 
 }
 

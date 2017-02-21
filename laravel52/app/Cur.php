@@ -31,4 +31,13 @@ class Cur extends Model
       // print_r($cur);die;
         return $cur;
     }
+    /////////
+    public function moBod(){
+        $data=DB::table('study_seeding')->join('study_teacher', 'study_seeding.teacher_id', '=', 'study_seeding.teacher_id')->get();
+        foreach($data as $key=>$val){
+            $data[$key]['begintime']=strtotime($val['begintime']);
+            $data[$key]['endtime']=strtotime($val['endtime']);
+        }
+        return $data;
+    }
 }

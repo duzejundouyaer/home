@@ -110,7 +110,7 @@
 <!--顶部-->
 <div class="bar bar-header bar-positive  " >
     <a class="button button-clear icon ion-ios-arrow-left" onclick="history.go(-1);"></a>
-    <h1 class="title">正在直播</h1>
+    <h1 class="title">未来直播</h1>
 
 </div>
 <!--内容-->
@@ -119,17 +119,17 @@
     <ion-scroll  direction="y" scrollbar-y="false" style="width: 100%; height: 100%">
         <div style="width:70px;height:70px;"></div>
         <div class="NewsList">
-            <a href="{{URL('mogbo')}}">查看未直播视频 ☚</a>
+            <a href="{{URL('thisee')}}">查看正在直播视频 ☚</a>
             <ul class="clearfix classul">
              <?php foreach($data as $key=>$val){?>
-                <?php if($val['begintime']<=time()&&$val['endtime']>=time()){?>
+                <?php if($val['begintime']<=time()){?>
                  <li>
                      <div class="bord">
                          <div class="lt">
-                             <a href="{{URL('begbo')}}?id=<?=$val['id']?>" title=""><img src="http://study.dazejun.cn/<?=$val['photo']?>" height="50" width='50' alt=""/></a>
+                             <a href="" title=""><img src="http://study.dazejun.cn/<?=$val['photo']?>" height="50" width='50' alt=""/></a>
                          </div>
                          <div class="rt1">
-                             <a href="{{URL('begbo')}}?id=<?=$val['id']?>" title="">
+                             <a href="" title="">
                                  <div class="rt1">
                                      <h3><?=$val['title']?></h3>
                                      <a href="javascript:void(0);"><p>讲师：<?=$val['teacher_name']?></p></a>
