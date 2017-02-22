@@ -2,7 +2,7 @@
 <head>
         <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>精选课程</title>
+    <title>我的购买</title>
 
     <link href="{{asset('style/css/ionic.min.css')}}" rel="stylesheet">
   <link href="{{asset('css/share.css')}}" rel="stylesheet"/>
