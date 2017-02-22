@@ -11,6 +11,7 @@ use Mail;
 use Symfony\Component\HttpFoundation\Session\Session;
 use App\User;
 use App\Info;
+use App\Collect;
 class CenterController extends Controller{
 
 /**
@@ -166,7 +167,23 @@ class CenterController extends Controller{
           return 1;
         }
    }
-
+    /**
+     * 添加个人收藏
+     */
+    public function my_collection(Request $request)
+    {
+       $request = $request->all();
+       $cur_id = $request['cur_id'];
+       $session = new Session;
+       $nickname = $session->get('nickname');
+       $collect = new Collect();
+       $reg = $collect->addCol($cur_id,$nickname);
+       print_r($reg);die;
+       if($reg)
+       {
+          return view('center.colection');
+       }
+    }
 
 }
 
