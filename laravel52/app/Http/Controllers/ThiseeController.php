@@ -27,9 +27,17 @@ class ThiseeController extends Controller
 //        print_r($data);die;
 //        $cur=new Cur();
 //        $data=$cur->moBod();
-        return view('thisee.mogbo',['data'=>$data]);
+        return view('thisee.modo',['data'=>$data]);
     }
-
+    ////直播
+    public function begbo(){
+        $id=Input::get('id');
+        $data=DB::table('study_seeding')->join('study_teacher', 'study_teacher.teacher_id','=','study_seeding.teacher_id')->where('id',$id)->first();
+//        print_r($data);
+//        echo time();
+//        die;
+        return view('thisee.yibo',['data'=>$data]);
+    }
 
 
 }
