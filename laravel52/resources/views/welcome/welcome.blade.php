@@ -226,10 +226,17 @@
                                     <!-- <a href="javascript:void(0)027-86730762"><p>027-86730762</p></a> -->
                                </div>
                             </a>
+                            <?php if ($value['cur_price']==0){?>
                             <div class="rt2">
-                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price'] ?></i></p>
+                                 <p class="green"><i class="f15 mr5">&yen;</i><i class="f20"><span style='color:green'>免费</span></i></p>
                              
                            </div>
+                           <?php }else{ ?>
+                              <div class="rt2">
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price']?></i></p>
+                             
+                           </div>
+                          <?php }?>
                         </div>
                       </div>
                    </li>
@@ -261,10 +268,17 @@
                                     <!-- <a href="javascript:void(0)027-86730762"><p>027-86730762</p></a> -->
                                </div>
                             </a>
+                           <?php if ($value['cur_price']==0){?>
                             <div class="rt2">
-                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price'] ?></i></p>
+                                 <p class="green"><i class="f15 mr5">&yen;</i><i class="f20">免费</i></p>
                              
                            </div>
+                           <?php }else{ ?>
+                              <div class="rt2">
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price']?></i></p>
+                             
+                           </div>
+                          <?php }?>
                         </div>
                       </div>
                    </li>
@@ -294,10 +308,17 @@
                                   
                                </div>
                             </a>
+                            <?php if ($value['cur_price']==0){?>
                             <div class="rt2">
-                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price'] ?></i></p>
+                               <p class="green"><i class="f15 mr5">&yen;</i><i class="f20">免费</i></p>
                              
                            </div>
+                           <?php }else{ ?>
+                              <div class="rt2">
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $value['cur_price']?></i></p>
+                             
+                           </div>
+                          <?php }?>
                         </div>
                       </div>
                    </li>
