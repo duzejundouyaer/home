@@ -150,7 +150,7 @@
                                          ?>
                                         </i>
                                         <br/>
-                                        <a style="font-size: 25px;" alt="收藏">❤</a>
+                                        <a style="font-size: 25px;" alt="收藏" href="{{URL('collection')}}?cur_id=<?=$val['cur_id']?>">❤</a>
                                         <?php ?>
 
                                         <?php ?>

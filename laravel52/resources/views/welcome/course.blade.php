@@ -135,10 +135,17 @@
                                  
                                </div>
                             </a>
+                            <?php if ($val['cur_price']==0){?>
                             <div class="rt2">
-                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $val['cur_price'];?></i></p>
+                               <p class="green"><i class="f15 mr5">&yen;</i><i class="f20">免费</i></p>
                              
                            </div>
+                           <?php }else{ ?>
+                              <div class="rt2">
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?php echo $val['cur_price']?></i></p>
+                             
+                           </div>
+                          <?php }?>
                         </div>
                     </div>
             </li>
