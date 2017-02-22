@@ -126,17 +126,17 @@
                      <li>
                     <div class="bord">
                         <div class="lt">
-                            <a href="article.htm" title=""><img src="http://m.pxto.com.cn/uploads/201608/04/57a2e1cb7e370.jpg" height="50px;" width='50px;' alt=""/></a>
+                            <a href="javascript:void(0)" title=""><img src="<?=$val['curl_img']?>" height="50px;" width='50px;' id="img" /></a>
                         </div>
                         <div class="rt">
                             <a href="#" title="">
                                 <div class="rt1">
-                                    <h3><?=$val['course_name']?></h3>
-                                    <a href="javascript:void(0)027-86730762"><p><?=$val['add_time']?></p></a>
+                                    <h3 id="courseName"><?=$val['course_name']?></h3>
+                                    <a href="javascript:void(0)027-86730762"><p id="addTime"><?=$val['add_time']?></p></a>
                                </div>
                             </a>
                             <div class="rt2">
-                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20"><?=$val['cur_price']?></i></p>
+                                <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20" id="curPrice"><?=$val['cur_price']?></i></p>
                                 <p style="margin-top:10px;" id="<?=$val['cart_id']?>"><a href="javascript:void(0)" id="del">删除</a></p>
                            </div>
                         </div>
@@ -150,8 +150,9 @@
   </div>
     <div style="height:50px;width:100%;clear:all "><p style="float:right;margin-top:30px;margin-right:20px;font-size:16px;">共<span style="color:red;">{{$price}}</span>元</p></div>
     <div>
-              <a class="button button-block button-positive" href="" style="background:red;">点击付款 </a>
+              <a class="button button-block button-positive" href="javascript:void();" id="buy" style="background:red;">点击付款 </a>
         </div> 
+        <span style="margin-left:200px;color:green; display:none;" id="info"></span>
      </ion-scroll>
     </ion-view>
     <!-- 底部-->
@@ -174,9 +175,30 @@
                    if(msg==1)
                    {
                       _this.parents('ul').remove();
+                       window.location.reload();
                    }
                }
             });
+         })
+         $("#buy").click(function(){
+              var img = $("#img").attr('src');
+              var courseName = $("#courseName").html();
+              var addTime = $("#addTime").html();
+              var curPrice = $("#curPrice").html();
+              var curId = $("#del").parent().attr('id');
+              var _token = "{{csrf_token()}}";
+              $.ajax({
+                 type: "POST",
+                 url: "{{URL('pay')}}",
+                 data: {img:img,courseName:courseName,addTime:addTime,curPrice:curPrice,curId:curId,_token:_token},
+                 success: function(msg){
+                     if(msg == 1)
+                     {
+                         $("#info").html("购买成功");
+                         location.href="{{URL('myorder')}}";
+                     }
+                 }
+              });
          })
     })
 </script>

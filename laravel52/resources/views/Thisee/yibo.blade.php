@@ -103,6 +103,7 @@
             float: left;}
 
     </style>
+    <link rel="stylesheet" href="http://g.alicdn.com/de/prismplayer/1.4.7/skins/default/index-min.css" />
 </head>
 <body>
 <!--精选课程-->
@@ -110,82 +111,52 @@
 <!--顶部-->
 <div class="bar bar-header bar-positive  " >
     <a class="button button-clear icon ion-ios-arrow-left" onclick="history.go(-1);"></a>
-    <h1 class="title">课程列表</h1>
+    <h1 class="title">{{$data['title']}}</h1>
 
 </div>
 <!--内容-->
 
 <ion-view title="Home" hide-nav-bar="true">
     <ion-scroll  direction="y" scrollbar-y="false" style="width: 100%; height: 100%">
-
         <div style="width:70px;height:70px;"></div>
         <div class="NewsList">
-            <ul class="clearfix classul">
-                <?php foreach($data as $key=>$val){?>
-                    <li>
-                        <div class="bord">
-                            <div class="lt">
-                                <a href="{{URL('cont')}}?cur_id=<?=$val['cur_id']?>" title=""><img src="http://more.com/<?=$val['cur_img']?>" height="50" width='50' alt=""/></a>
-                            </div>
-                            <div class="rt">
-                                <a href="{{URL('cont')}}?cur_id=<?=$val['cur_id']?>" title="">
-                                    <div class="rt1">
-                                        <h3><?=$val['cur_name']?></h3>
-                                        <p></p>
-                                        <a href="javascript:void(0);"><p>讲师：<?=$val['teacher_name']?></p></a>
-                                    </div>
-                                </a>
-                                <div class="rt2">
-                                    <p class="orange">
-                                        <i class="f15 mr5">&yen;</i>
-                                       <i class="f20">
-                                         <?php  
-                                        if($val['cur_price']==0)
-                                        {
-                                            echo "<span style='color:green;'>免费</span>";   
-                                        }else
-                                        {
-                                            echo $val['cur_price'];
-                                        }
-                                         ?>
-                                        </i>
-                                        <br/>
-                                        <a style="font-size: 25px;" alt="收藏">❤</a>
-                                        <?php ?>
-
-                                        <?php ?>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                <?php }?>
-            </ul>
+            <div id='J_prismPlayer' class='prism-player'></div>
         </div>
-        {{--<div id="page">--}}
-            {{--{{$data->links()}}--}}
-        {{--</div>--}}
-        {{--@include('partials.pagination')--}}
-        {{--<section class="indexMore bgf6 bb clearfix">--}}
-            {{--<div class="pl15 mypage">--}}
-                {{--<span class="hover">1</span>--}}
-                {{--<a href="javascript:void(0);">2</a>--}}
-                {{--<a href="javascript:void(0);">3</a>--}}
-                {{--<a href="javascript:void(0);">4</a>--}}
-                {{--<a>...</a>--}}
-                {{--<a href="javascript:void(0)/wuhan/kc-p_50" >50</a>--}}
-                {{--<a  href="javascript:void(0)/wuhan/kc-p_2" class="pl10 pr10">下一页<i class="pl5 fm2"></i></a>--}}
-                {{--<a href="javascript:void(0)javascript:void(0)" class="more_r more" id="back-to-top">回到顶部<i></i></a>--}}
-            {{--</div>--}}
-        {{--</section>--}}
-        {{--<div style="height:50px;width:100%;clear:all"></div>--}}
     </ion-scroll>
 </ion-view>
 
 <!-- 底部-->
 @include('master')
-
-
+{{--http://live.kjschool.net/app-name/StreamName.m3u8--}}
+<script type="text/javascript" src="http://g.alicdn.com/de/prismplayer/1.4.7/prism-h5-min.js"></script>
+<script>
+    var player = new prismplayer({
+        id: "J_prismPlayer", // 容器id
+        source: "{{$data['url']}}",  // 视频url 支持互联网可直接访问的视频地址
+        autoplay: true,      // 自动播放
+        width: "100%",       // 播放器宽度
+        height: "400px"      // 播放器高度
+    });
+</script>
 </body>
 </html>
-
+{{--<!DOCTYPE HTML>--}}
+{{--<html>--}}
+{{--<head>--}}
+    {{--<meta charset="UTF-8">--}}
+    {{--<link rel="stylesheet" href="http://g.alicdn.com/de/prismplayer/1.4.7/skins/default/index-min.css" />--}}
+    {{--<script type="text/javascript" src="http://g.alicdn.com/de/prismplayer/1.4.7/prism-flash-min.js"></script>--}}
+{{--</head>--}}
+{{--<body>--}}
+{{--<div id='J_prismPlayer' class='prism-player'></div>--}}
+{{--<script>--}}
+    {{--var player = new prismplayer({--}}
+        {{--id: "J_prismPlayer", // 容器id--}}
+        {{--source: "http://live.kjschool.net/app-name/StreamName.flv",  // 视频url 支持互联网可直接访问的视频地址--}}
+        {{--autoplay: true,      // 自动播放--}}
+        {{--width: "100%",       // 播放器宽度--}}
+        {{--height: "400px"      // 播放器高度--}}
+    {{--});--}}
+{{--</script>--}}
+{{--</body>--}}
+{{--</html>--}}
