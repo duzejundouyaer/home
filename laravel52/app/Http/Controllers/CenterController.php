@@ -176,13 +176,52 @@ class CenterController extends Controller{
        $cur_id = $request['cur_id'];
        $session = new Session;
        $nickname = $session->get('nickname');
-       $collect = new Collect();
-       $reg = $collect->addCol($cur_id,$nickname);
-       print_r($reg);die;
-       if($reg)
+       $ruls =DB::table('study_cur')->where('user_id',$userInfo['user_id'])->where('cur_id',$cur_id)->first();
+        if($ruls)
+        {
+           return view('market.list');
+         }else
+         {
+           $collect = new Collect();
+           $reg = $collect->addCol($cur_id,$nickname);
+           return redirect('personal');
+         }
+    }
+    /**
+     * 查看个人收藏
+     */
+    public function personal_collection()
+    {
+         $session = new Session;
+         $nickname =$session->get('nickname');
+      if(empty($nickname))
        {
-          return view('center.colection');
-       }
+         return redirect('login');
+       }else
+       {
+           $collect = new Collect();
+           $cur = $collect->getCol($nickname);
+           foreach ($cur as $key => $value)
+           {
+               $arr[]=$value['cur_id'];
+           }
+            $curs = DB::table('study_cur')->whereIn('cur_id', $arr)->get();
+            return view('center.collection',['curs'=>$curs]);
+        }
+    }
+
+    public function del_collection(Request $request)
+    {
+          $request = $request->all();
+          $cur_id = $request['id'];
+          $session = new Session;
+          $nickname = $session->get('nickname');
+          $collect = new Collect();
+          $res = $collect->delCol($cur_id,$nickname);
+          if(!$res)
+          {
+            return 1;
+          }
     }
 
 }
