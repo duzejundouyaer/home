@@ -176,7 +176,8 @@ class CenterController extends Controller{
        $cur_id = $request['cur_id'];
        $session = new Session;
        $nickname = $session->get('nickname');
-       $ruls =DB::table('study_cur')->where('user_id',$userInfo['user_id'])->where('cur_id',$cur_id)->first();
+       $userInfo = DB::table('study_user')->where('nickname', '=',$nickname)->first();
+       $ruls =DB::table('study_collect')->where('user_id',$userInfo['user_id'])->where('cur_id',$cur_id)->first();
         if($ruls)
         {
            return view('market.list');
