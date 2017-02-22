@@ -61,7 +61,7 @@ $session = new Session();
                      <a class="button button-clear icon " href="{{URL('myorder')}}" style="margin-right:130px;color:#000;">已购买课程</a>
                     </li>
                     <li class="item item-button-right icon ion-ios-star-outline">
-                      <a class="button button-clear icon " href="{{URL('feedback')}}" style="margin-right:150px;color:#000;">我的收藏</a>
+                      <a class="button button-clear icon " href="{{URL('personal')}}" style="margin-right:150px;color:#000;">我的收藏</a>
                     </li>
                      
                     <li class="item  item-button-right icon ion-ios-person-outline">
@@ -89,7 +89,7 @@ $session = new Session();
                      <a class="button button-clear icon " href="{{URL('myorder')}}" style="margin-right:130px;color:#000;">已购买课程</a>
                     </li>
                     <li class="item item-button-right icon ion-ios-star-outline">
-                      <a class="button button-clear icon " href="{{URL('myinfo')}}" style="margin-right:150px;color:#000;">我的收藏</a>
+                      <a class="button button-clear icon " href="{{URL('personal')}}" style="margin-right:150px;color:#000;">我的收藏</a>
                     </li>
                      
                     <li class="item  item-button-right icon ion-ios-person-outline">
