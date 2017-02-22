@@ -132,7 +132,7 @@
                             <a href="#" title="">
                                 <div class="rt1">
                                     <h3 id="courseName"><?=$val['course_name']?></h3>
-                                    <a href="javascript:void(0)027-86730762"><p id="addTime"><?=$val['add_time']?></p></a>
+                                    <a href="javascript:void(0)"><p id="addTime"><?=$val['add_time']?></p></a>
                                </div>
                             </a>
                             <div class="rt2">
@@ -150,7 +150,7 @@
   </div>
     <div style="height:50px;width:100%;clear:all "><p style="float:right;margin-top:30px;margin-right:20px;font-size:16px;">共<span style="color:red;">{{$price}}</span>元</p></div>
     <div>
-              <a class="button button-block button-positive" href="javascript:void();" id="buy" style="background:red;">点击付款 </a>
+              <a class="button button-block button-positive" href="javascript:void(0);" id="buy" style="background:red;">点击付款 </a>
         </div> 
         <span style="margin-left:200px;color:green; display:none;" id="info"></span>
      </ion-scroll>
@@ -174,7 +174,7 @@
                success: function(msg){
                    if(msg==1)
                    {
-                      _this.parents('ul').remove();
+                      //_this.parents('ul').remove();
                        window.location.reload();
                    }
                }
@@ -187,6 +187,7 @@
               var curPrice = $("#curPrice").html();
               var curId = $("#del").parent().attr('id');
               var _token = "{{csrf_token()}}";
+//              location.href="";
               $.ajax({
                  type: "POST",
                  url: "{{URL('pay')}}",
@@ -194,8 +195,10 @@
                  success: function(msg){
                      if(msg == 1)
                      {
-                         $("#info").html("购买成功");
-                         location.href="{{URL('myorder')}}";
+                         $("#info").html("失败");
+
+                     }else {
+                         location.href=msg;
                      }
                  }
               });

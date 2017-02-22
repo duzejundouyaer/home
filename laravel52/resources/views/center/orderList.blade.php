@@ -125,7 +125,7 @@
                      <li>
                     <div class="bord">
                         <div class="lt">
-                            <a href="article.htm" title=""><img src="http://m.pxto.com.cn/uploads/201608/04/57a2e1cb7e370.jpg" height="50px;" width='50px;' alt=""/></a>
+                            <a href="{{URL('cont')}}?cur_id=<?php echo $val['cur_id']?>" title=""><img src="{{$val['cur_img']}}" height="50px;" width='50px;' alt=""/></a>
                         </div>
                         <div class="rt">
                             <a href="#" title="">
@@ -136,8 +136,19 @@
                             </a>
                             <div class="rt2">
                                 <p class="orange"><i class="f15 mr5">&yen;</i><i class="f20">{{$val['price']}}</i></p>
-                                <p style="margin-top:10px;" id=""><a href="javascript:void(0)" id="del">播放</a></p>
-                           </div>
+                                 <?php
+                                if($val['status'] == 1){
+                                    ?>
+                                <p style="margin-top:10px;" id=""><a href="javascript:void(0)" id="del">已购买</a></p>
+                                <?php
+                                }else{
+                                    ?>
+                                <p style="margin-top:10px;" id=""><a href="{{URL('mycart')}}">未购买</a></p>
+
+                            <?php
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
 
